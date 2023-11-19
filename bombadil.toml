@@ -1,0 +1,7 @@
+dotfiles_dir = "gh/dotfiles"
+
+[settings]
+posthooks = [ "i3-msg restart" ]
+
+[settings.dots]
+
