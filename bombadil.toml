@@ -1,11 +1,41 @@
 dotfiles_dir = "dev/dotfiles"
 
 [settings]
-posthooks = [ "i3-msg restart" ]
+posthooks = [
+    "i3-msg restart",
+]
 
 [settings.dots]
 templates = { source = "Templates", target = "Templates" }
 scripts = { source = "scripts", target = "scripts" }
+
 editorconfig = { source = "home/editorconfig", target = ".editorconfig" }
 xinitrc = { source = "home/xinitrc", target = ".xinitrc" }
+
 picom = { source = "config/picom.conf", target = ".config/picom.conf" }
+git = { source = "git/config", target = ".config/git/config" }
+
+bash = { source = "bash", target = ".config/bash" }
+betterdiscord = { source = "BetterDiscord", target = ".config/BetterDiscord" }
+btop = { source = "btop", target = ".config/btop" }
+dunst = { source = "dunst", target = ".config/dunst" }
+fastfetch = { source = "fastfetch", target = ".config/fastfetch" }
+gtk2 = { source = "gtk/gtk-2.0", target = ".config/gtk-2.0" }
+gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0" }
+gtk4 = { source = "gtk/gtk-4.0", target = ".config/gtk-4.0" }
+gtk5 = { source = "gtk/gtk-5.0", target = ".config/gtk-5.0" }
+gtk6 = { source = "gtk/gtk-6.0", target = ".config/gtk-6.0" }
+i3 = { source = "i3", target = ".config/i3" }
+kitty = { source = "kitty", target = ".config/kitty" }
+lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
+nvim = { source = "nvim", target = ".config/nvim" }
+pipewire = { source = "pipewire", target = ".config/pipewire" }
+polybar = { source = "polybar", target = ".config/polybar" }
+ranger = { source = "ranger", target = ".config/ranger" }
+rofi = { source = "rofi", target = ".config/rofi" }
+roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
+screenlayout = { source = "screenlayout", target = ".config/screenlayout" }
+vim = { source = "vim", target = ".config/vim" }
+X11 = { source = "X11", target = ".config/X11" }
+zsh = { source = "zsh", target = ".config/zsh" }
+

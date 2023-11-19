@@ -1,0 +1,23 @@
+{
+    "PluginRepo": true,
+    "BDFDB": true,
+    "ZeresPluginLibrary": false,
+    "BetterAudioPlayer": false,
+    "CallTimeCounter": true,
+    "BetterRoleColors": false,
+    "SplitLargeMessages": false,
+    "BetterVolume": false,
+    "TypingUsersAvatars": true,
+    "ThemeRepo": false,
+    "AutoIdleOnAFK": true,
+    "BetterAnimations": false,
+    "BetterBotTags": false,
+    "BetterInvites": false,
+    "BetterMediaPlayer": false,
+    "BetterNsfwTag": false,
+    "CharCounter": false,
+    "ActivityIcons": false,
+    "HideDisabledEmojis": true,
+    "WhoReacted": false,
+    "TeX": true
+}

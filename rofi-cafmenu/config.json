@@ -1,0 +1,14 @@
+{
+	"ignored-meals": [
+		"BREAKFAST"
+	],
+	"ignored-stations": [
+		"Deli",
+		"Mto Pasta",
+		"Omeletes",
+		"Pizza",
+		"Salad",
+		"Soup",
+		"Kids Camps"
+	]
+}

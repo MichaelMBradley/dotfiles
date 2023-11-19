@@ -1,0 +1,16 @@
+[user]
+	name = Michael Bradley
+[includeIf "gitdir:~/dev/"]
+	path = ./config-personal
+[includeIf "gitdir:~/school/"]
+	path = ./config-personal
+[includeIf "gitdir:~/work/"]
+	path = ./config-work
+[core]
+	editor = lvim
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main
