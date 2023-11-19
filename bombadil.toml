@@ -4,5 +4,6 @@ dotfiles_dir = "dev/dotfiles"
 posthooks = [ "i3-msg restart" ]
 
 [settings.dots]
-Templates = { source = "Templates", target = "Templates" }
+templates = { source = "Templates", target = "Templates" }
+scripts = { source = "scripts", target = "scripts" }
 

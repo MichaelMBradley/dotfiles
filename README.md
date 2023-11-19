@@ -1,4 +1,4 @@
 # Dotfiles
 
-I use Arch Linux with i3 and Rofi.
+I use Arch Linux with i3/picom and Rofi.
 

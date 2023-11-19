@@ -1,0 +1,9 @@
+#!/bin/env sh
+
+# Remove video ids from output files of yt-dlp
+
+for vid in *.mp3; do
+  newvid="${vid%????????????????}"
+  mv "${vid}" "${newvid}.mp3"
+done
+
