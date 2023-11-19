@@ -8,4 +8,4 @@ templates = { source = "Templates", target = "Templates" }
 scripts = { source = "scripts", target = "scripts" }
 editorconfig = { source = "home/editorconfig", target = ".editorconfig" }
 xinitrc = { source = "home/xinitrc", target = ".xinitrc" }
-
+picom = { source = "config/picom.conf", target = ".config/picom.conf" }
