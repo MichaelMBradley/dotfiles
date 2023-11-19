@@ -1,7 +1,8 @@
-dotfiles_dir = "gh/dotfiles"
+dotfiles_dir = "dev/dotfiles"
 
 [settings]
 posthooks = [ "i3-msg restart" ]
 
 [settings.dots]
+Templates = { source = "Templates", target = "Templates" }
 
