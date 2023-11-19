@@ -6,4 +6,6 @@ posthooks = [ "i3-msg restart" ]
 [settings.dots]
 templates = { source = "Templates", target = "Templates" }
 scripts = { source = "scripts", target = "scripts" }
+editorconfig = { source = "home/editorconfig", target = ".editorconfig" }
+xinitrc = { source = "home/xinitrc", target = ".xinitrc" }
 
