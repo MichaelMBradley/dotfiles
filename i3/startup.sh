@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/env sh
 
 function cmd() {
   control_file="unix:/tmp/kittycommand-$(date +%s%N)-$*"
@@ -7,8 +7,8 @@ function cmd() {
   kitty @ --to "$control_file" send-text "$*\n"
 }
 
-# /home/mbradley/scripts/mouse_sens.sh
-./feh.sh
+#~/scripts/mouse_sens.sh
+#./feh.sh
 ~/.config/polybar/launch.sh
 
 if [ "$(uname -n)" == "chonk" ]; then

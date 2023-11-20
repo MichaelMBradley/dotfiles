@@ -4,7 +4,6 @@ set $mod Mod4
 font pango:JetBrains Mono 5
 
 smart_borders on
-gaps inner 3
 
 #Setup displays
 exec --no-startup-id ~/.config/screenlayout/monitor.sh
@@ -168,4 +167,5 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id /usr/bin/birdtray
 
 exec --no-startup-id ~/.config/i3/startup.sh
+exec --no-startup-id feh --no-fehbg --bg-fill --randomize /usr/share/backgrounds/Wallpapers/*
 
