@@ -35,7 +35,7 @@ ranger = { source = "ranger", target = ".config/ranger" }
 rofi = { source = "rofi", target = ".config/rofi" }
 roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
 screenlayout = { source = "screenlayout", target = ".config/screenlayout" }
-vim = { source = "vim", target = ".config/vim" }
+vim = { source = "vim/vimrc", target = ".config/vim/vimrc" }
 X11 = { source = "X11", target = ".config/X11" }
 zsh = { source = "zsh", target = ".config/zsh" }
 

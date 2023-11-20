@@ -15,3 +15,10 @@ set viewdir=$XDG_STATE_HOME/vim/view     | call mkdir(&viewdir,   'p')
 
 if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
 
+set number
+set nocompatible
+filetype on
+syntax on
+set cursorline
+set cursorcolumn
+set tabstop=4

@@ -18,6 +18,7 @@ export VIMINIT='let $MYVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME/vim/vimrc" : "$X
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export W3M_DIR="$XDG_DATA_HOME/w3m"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 export PATH="$PATH:/home/mbradley/.local/share/JetBrains/Toolbox/scripts:/home/mbradley/scripts"
 

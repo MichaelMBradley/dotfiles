@@ -188,17 +188,11 @@ for_window [all] border none
 hide_edge_borders both
 
 # other commands
-exec_always --no-startup-id picom -b
-exec_always --no-startup-id /home/mbradley/.config/i3/feh.sh
+exec --no-startup-id picom -b
 exec --no-startup-id redshift-gtk -l 44.631:-77.955
 
-exec_always --no-startup-id polybar-msg cmd quit
-exec_always --no-startup-id polybar -r main
-exec_always --no-startup-id polybar -r other
-exec_always --no-startup-id polybar -r last
 exec --no-startup-id /usr/bin/dunst
-
-exec --no-startup-id /home/mbradley/.config/i3/startup.sh
-
 exec --no-startup-id /usr/bin/birdtray
+
+exec --no-startup-id ~/.config/i3/startup.sh
 

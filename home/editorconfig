@@ -3,17 +3,22 @@ root = true
 [*]
 end_of_line = lf
 insert_final_newline = true
-charset = utf-8
 trim_trailing_whitespace = true
+charset = utf-8
+indent_style = tab
 indent_size = 4
 
 [*.py]
 indent_style = tab
 
-[*.rs]
+[*.{rs,rst,hs}]
 indent_style = space
 
 [*.sql]
 indent_style = space
 indent_size = 8
+
+[*.{bashrc,sh,zsh,zshrc}]
+indent_style = space
+indent_size = 2
 

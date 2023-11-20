@@ -8,14 +8,18 @@ function cmd() {
 }
 
 # /home/mbradley/scripts/mouse_sens.sh
+./feh.sh
+~/.config/polybar/launch.sh
 
-i3-msg 'workspace 3; append_layout /home/mbradley/.config/i3/startup.json'
-sleep 0.1
+if [ "$(uname -n)" == "chonk" ]; then
+  i3-msg 'workspace 3; append_layout /home/mbradley/.config/i3/startup.json'
+  sleep 0.1
 
-cmd clear
-cmd c
-sleep 0.5
-cmd btop
+  cmd clear
+  cmd c
+  sleep 0.5
+  cmd btop
 
-i3-msg 'workspace 1'
+  i3-msg 'workspace 1'
+fi
 
