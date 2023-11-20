@@ -160,7 +160,6 @@ for_window [all] border none
 hide_edge_borders both
 
 # other commands
-exec --no-startup-id picom -b
 exec --no-startup-id redshift-gtk -l 44.631:-77.955
 
 exec --no-startup-id /usr/bin/dunst
@@ -168,4 +167,5 @@ exec --no-startup-id /usr/bin/birdtray
 
 exec --no-startup-id ~/.config/i3/startup.sh
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize /usr/share/backgrounds/Wallpapers/*
+exec --no-startup-id picom -b
 
