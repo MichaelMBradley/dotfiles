@@ -16,7 +16,6 @@ picom = { source = "config/picom.conf", target = ".config/picom.conf" }
 git = { source = "git/config", target = ".config/git/config" }
 
 bash = { source = "bash", target = ".config/bash" }
-betterdiscord = { source = "BetterDiscord", target = ".config/BetterDiscord" }
 btop = { source = "btop", target = ".config/btop" }
 dunst = { source = "dunst", target = ".config/dunst" }
 fastfetch = { source = "fastfetch", target = ".config/fastfetch" }
