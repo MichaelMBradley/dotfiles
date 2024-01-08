@@ -7,10 +7,10 @@ killall -q polybar
 
 if [ "$(uname -n)" == "chonk" ]; then
   # Launch Polybar, using default config location ~/.config/polybar/config.ini
-  polybar main_desktop 2>&1 | tee -a /tmp/polybar-m.log & disown
-  polybar side_desktop 2>&1 | tee -a /tmp/polybar-s.log & disown
-  polybar top_desktop 2>&1 | tee -a /tmp/polybar-t.log & disown
+  polybar -r main_desktop 2>&1 | tee -a /tmp/polybar-m.log & disown
+  polybar -r side_desktop 2>&1 | tee -a /tmp/polybar-s.log & disown
+  polybar -r top_desktop 2>&1 | tee -a /tmp/polybar-t.log & disown
 else
-  polybar main_laptop 2>&1 | tee -a /tmp/polybar.log & disown
+  polybar -r main_laptop 2>&1 | tee -a /tmp/polybar.log & disown
 fi
 
