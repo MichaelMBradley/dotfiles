@@ -159,6 +159,8 @@ new_window none
 for_window [all] border none
 hide_edge_borders both
 
+for_window [title = "^COMP 3009"] floating enable
+
 # other commands
 exec --no-startup-id redshift-gtk -l 44.631:-77.955
 
