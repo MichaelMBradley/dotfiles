@@ -169,5 +169,6 @@ exec --no-startup-id /usr/bin/birdtray
 
 exec --no-startup-id ~/.config/i3/startup.sh
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize /usr/share/backgrounds/Wallpapers/*
+exec --no-startup-id xset s off -dpms
 exec --no-startup-id picom -b
 
