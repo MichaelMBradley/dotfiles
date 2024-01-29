@@ -158,6 +158,8 @@ default_floating_border none
 new_window none
 for_window [all] border none
 hide_edge_borders both
+#no_focus [all]
+no_focus [class="^steam$"]
 
 for_window [title = "^COMP 3009"] floating enable
 
