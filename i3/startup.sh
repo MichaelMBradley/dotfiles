@@ -2,7 +2,7 @@
 
 function cmd() {
   control_file="unix:/tmp/kittycommand-$(date +%s%N)-$*"
-  kitty -o allow_remote_control="yes" --listen-on "$control_file" &
+  kitty -o allow_remote_control="yes" --listen-on "$control_file" & disown
   sleep 1
   kitty @ --to "$control_file" send-text "$*\n"
 }
@@ -21,5 +21,7 @@ if [ "$(uname -n)" == "chonk" ]; then
   cmd btop
 
   i3-msg 'workspace 1'
+  firefox & disown
+  discord & disown
 fi
 
