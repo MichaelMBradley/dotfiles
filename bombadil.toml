@@ -27,6 +27,7 @@ gtk6 = { source = "gtk/gtk-6.0", target = ".config/gtk-6.0" }
 i3 = { source = "i3", target = ".config/i3" }
 kitty = { source = "kitty", target = ".config/kitty" }
 lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
+nautilus-scripts = { source = "nautilus-scripts", target = ".local/share/nautilus/scripts" }
 nvim = { source = "nvim", target = ".config/nvim" }
 pipewire = { source = "pipewire", target = ".config/pipewire" }
 polybar = { source = "polybar", target = ".config/polybar" }
