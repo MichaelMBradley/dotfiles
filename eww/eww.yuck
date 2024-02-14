@@ -1,0 +1,175 @@
+(defwidget label_circle [text value]
+  (box :class "label_circle"
+    (label :text text :class "label")
+    (circular-progress :value {value < 1 ? 1 : value} :clockwise true :start-at 25 :thickness 2 :class "value")))
+
+
+(defwidget label_value [text value ?text_class ?value_class]
+  (box :class "label_value"
+    (label :text text :class "label ${text_class}")
+    (label :text value :class "value ${value_class}")))
+
+
+(defwidget sep []
+  (label :text "|" :class "sep"))
+
+
+(deflisten workspaces :initial "[]" "~/.config/eww/scripts/get-workspaces")
+(defwidget workspaces [monitor]
+  (box :space-evenly true :class "workspaces"
+    (for workspace in workspaces
+      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {workspace.monitor == monitor} :class {workspace.active ? "current" : ""} :cursor "pointer"
+        (label :text "${workspace.name}")))))
+
+
+(deflisten window :initial "..." "~/.config/eww/scripts/get-window-title")
+(defwidget window []
+  (box
+    (label :text "${window}")))
+
+(deflisten audio :initial "--" "~/.config/eww/scripts/get-audio")
+(defwidget volume []
+  (eventbox :onscroll "~/.config/eww/scripts/adjust-volume {}" :cursor "row-resize"
+    (label_value :text "" :value {audio.muted ? "muted" : "${audio.volume}%"} :value_class {audio.muted ? "muted" : ""})))
+(defwidget audio_source []
+  (eventbox :onclick "~/.config/eww/scripts/swap-audio-source" :cursor "pointer"
+    (label :text {audio.source} :class "audio-info")))
+(defwidget audio_sink []
+  (eventbox :onclick "~/.config/eww/scripts/swap-audio-sink" :cursor "pointer"
+    (label :text {audio.sink} :class "audio-info")))
+
+
+(defwidget mountpoint [label mount]
+  (label_circle :text label :value {EWW_DISK[mount].used_perc}))
+
+
+(defwidget ram []
+  (label_circle :text "" :value {EWW_RAM.used_mem_perc}))
+
+
+(defwidget cpu []
+  (label_circle :text "" :value {EWW_CPU.avg}))
+
+
+(defwidget eth []
+  (label :text "󰈀"))
+
+
+(defwidget datetime []
+  (box :space-evenly false
+    (label :text "${formattime(EWW_TIME, "%Y-%m-%d")}/" :class "label-date" :tooltip {formattime(EWW_TIME, "%A, %B %-d")})
+    (label :text "${formattime(EWW_TIME, "%H:%M:%S")}" :class "label-time" :tooltip {formattime(EWW_TIME, "%-I:%M %p")})))
+
+
+(defvar reveal_power false)
+(defwidget power []
+  (box :space-evenly false :class "power"
+    (revealer :transition "slideleft" :reveal reveal_power
+      (box :space-evenly true
+        (eventbox :onclick "swaylock" :cursor "pointer"
+          (label :text "" :class "lock"))
+        (eventbox :onclick "systemctl suspend" :cursor "pointer"
+          (label :text "鈴" :class "sleep"))
+        (eventbox :onclick "reboot" :cursor "pointer"
+          (label :text "ﰇ" :class "reboot"))
+        (eventbox :onclick "shutdown now" :cursor "pointer"
+          (label :text "" :class "shutdown"))))
+    (eventbox :onclick "eww update reveal_power=${!reveal_power}" :cursor "pointer"
+      (label :text {reveal_power ? "×" : ""} :class "control"))))
+
+
+(defwidget notifications []
+  (label :text ""))
+
+
+(defwidget color_selector []
+  (label :text ""))
+
+
+(defwidget wallpaper []
+  (label :text "󰸉"))
+
+
+(defwidget wlan []
+  (label :text ""))
+
+
+(defwidget left_bar []
+  (centerbox :class "bar" :orientation "h"
+    (box :class "left" :orientation "h" :space-evenly false :halign "begin"
+      (workspaces :monitor "DP-2")
+      (sep)
+      (window))
+    (box)
+    (box :class "right" :orientation "h" :space-evenly false :halign "end"
+      (volume)
+      (sep)
+      (audio_source)
+      (audio_sink))))
+(defwidget right_bar []
+  (centerbox :class "bar" :orientation "h"
+    (box :class "left" :orientation "h" :space-evenly false :halign "begin"
+      (workspaces :monitor "DP-1"))
+    (systray :pack_direction "ltr" :icon-size 20)
+    (box :class "right" :orientation "h" :space-evenly false :halign "end"
+      (ram)
+      (cpu)
+      (eth)
+      (sep)
+      (datetime)
+      (sep)
+      (power))))
+(defwidget above_bar []
+  (centerbox :class "bar" :orientation "h"
+    (box :class "left" :orientation "h" :space-evenly false :halign "begin"
+      (workspaces :monitor "HDMI-A-1"))
+    (systray :pack_direction "ltr" :icon-size 20)
+    (box :class "right" :orientation "h" :space-evenly false :halign "end"
+      (notifications)
+      (color_selector)
+      (wallpaper)
+      (sep)
+      (wlan)
+      (sep)
+      (mountpoint :label "/" :mount "/")
+      (mountpoint :label "󰋊" :mount "/home/mbradley/hdd")
+      (sep)
+      (volume)
+      (sep)
+      (datetime))))
+
+
+(defwindow left
+  :monitor 1
+  :geometry (geometry :x "0px"
+                      :y "4px"
+                      :width "1912px"
+                      :height "24px"
+                      :anchor "top center")
+  :stacking "bg"
+  :exclusive true
+  :focusable false
+  (left_bar))
+(defwindow right
+  :monitor 0
+  :geometry (geometry :x "0px"
+                      :y "4px"
+                      :width "1912px"
+                      :height "24px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (right_bar))
+(defwindow above
+  :monitor 2
+  :geometry (geometry :x "0px"
+                      :y "4px"
+                      :width "2552px"
+                      :height "24px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (above_bar))
+

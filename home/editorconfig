@@ -18,7 +18,7 @@ indent_style = space
 indent_style = space
 indent_size = 8
 
-[*.{bashrc,sh,zsh,zshrc}]
+[*.{bashrc,sh,zsh,zshrc,yuck}]
 indent_style = space
 indent_size = 2
 

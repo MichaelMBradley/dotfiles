@@ -6,14 +6,14 @@
  */
 
 * {
-    foreground:  #ffeedd;
-    backlight:   #ccffeedd;
+    foreground:  #c5c6c8;
+    backlight:   #373b41ee;
     background-color:  transparent;
     dark: #1c1c1c;
     // Black
     black:       #3d352a;
-    lightblack:  #554444;
-    tlightblack:  #554444cc;
+    lightblack:  #373b41;
+    tlightblack:  #373b41ee;
     //
     // Red
     red:         #cd5c5c;
@@ -47,6 +47,7 @@
     // Bold, Italic, Underline
     highlight:     underline bold #ffffff;
 
+	special:	#f0c674;
     transparent: rgba(0,0,0,0);
     font: "JetBrains Mono 10";
 }
@@ -68,8 +69,8 @@ mainbox {
     children: [ inputbar, message, listview ];
 }
 message {
-    border-color: @foreground;
-    border:  0px 2px 2px 2px;
+    border-color: @special;
+    border:  0px 1px 1px 1px;
 //    border-radius: 10px;
     padding: 5;
     background-color: @tcyan;
@@ -79,27 +80,31 @@ message {
     color: @black;
 }
 inputbar {
-    color: @lightgreen;
+    color: @special;
     padding: 11px;
     background-color: @tlightblack;
-    border: 2px 2px 2px 2px;
-    border-radius:  15px 15px 0px 0px;
-    border-color: @foreground;
+    border: 1px 1px 1px 1px;
+    border-radius:  8px 8px 0px 0px;
+    border-color: @special;
     font: "JetBrains Mono 18";
 }
-entry,prompt,case-indicator {
+prompt,case-indicator {
     text-font: inherit;
     text-color:inherit;
+}
+entry {
+    text-font: inherit;
+    text-color: @foreground;
 }
 prompt {
     margin:     0px 0.3em 0em 0em ;
 }
 listview {
     padding: 8px;
-    border-radius: 0px 0px 15px 15px;
-    border-color: @foreground;
-    border: 0px 2px 2px 2px;
-    background-color: #1c1c1ccc;
+    border-radius: 0px 0px 8px 8px;
+    border-color: @special;
+    border: 0px 1px 1px 1px;
+    background-color: #1c1c1cee;
     dynamic: false;
     lines: 10;
 }
@@ -180,3 +185,4 @@ error-message {
     border: 2px;
     padding: 1em;
 }
+

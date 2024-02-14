@@ -1,0 +1,85 @@
+$transparent: #0000;
+$background-alt: #373B41;
+//$background: rgba(#AA282A, 0.3);
+$background: rgba($background-alt, 0.82);
+$foreground: #C5C8C6;
+$primary: #F0C674;
+$secondary: #8ABEB7;
+$alert: #A54242;
+$disabled: #707880;
+
+
+* {
+	all: unset; //Unsets everything so you can style everything from scratch
+	font-family: "JetBrains Mono NFP", "MesloLGS NF", "FontAwesome";
+	font-size: 10pt;
+}
+
+window, tooltip {
+	background: $background;
+	color: $foreground;
+	border-radius: 8px;
+	margin: 3px 3px 0 3px;
+	border: 1px solid #707880;
+}
+
+
+.bar {
+	padding: 0 6px;
+}
+
+.sep {
+	color: $disabled;
+}
+
+.workspaces .current {
+	color: $primary;
+}
+
+.audio-info {
+	color: $primary;
+}
+
+.label_circle .label {
+	color: $primary;
+	margin-right: 2px;
+}
+
+.label_value .label {
+	color: $primary;
+}
+
+.label_value .muted {
+	color: $disabled;
+}
+
+.label-time {
+	color: $primary;
+}
+
+.power {
+	* {
+		margin: 0 1px;
+	}
+
+	.lock {
+		color: #007FFF;
+	}
+
+	.sleep {
+		color: #00FF7F;
+	}
+
+	.reboot {
+		color: #FF7F00;
+	}
+
+	.shutdown {
+		color: #F00;
+	}
+
+	.control {
+		color: $primary;
+	}
+}
+

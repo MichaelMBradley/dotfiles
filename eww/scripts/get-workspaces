@@ -1,0 +1,13 @@
+#!/bin/env sh
+
+# From: https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#eww
+
+spaces (){
+	ACTIVE_ID=$(hyprctl activeworkspace -j | jq -Mc ".id")
+	hyprctl workspaces -j | jq -Mc "map({id: .id, name: .name, monitor: .monitor, active: [.id == $ACTIVE_ID][0]})"
+}
+
+spaces
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+	spaces
+done

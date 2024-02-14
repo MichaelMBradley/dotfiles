@@ -2,7 +2,8 @@ dotfiles_dir = "dev/dotfiles"
 
 [settings]
 posthooks = [
-    "i3-msg restart",
+	"eww reload",
+	"hyprshade install",
 ]
 
 [settings.dots]
@@ -18,12 +19,14 @@ git = { source = "git/config", target = ".config/git/config" }
 bash = { source = "bash", target = ".config/bash" }
 btop = { source = "btop", target = ".config/btop" }
 dunst = { source = "dunst", target = ".config/dunst" }
+eww = { source = "eww", target = ".config/eww"}
 fastfetch = { source = "fastfetch", target = ".config/fastfetch" }
 gtk2 = { source = "gtk/gtk-2.0", target = ".config/gtk-2.0" }
 gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0" }
 gtk4 = { source = "gtk/gtk-4.0", target = ".config/gtk-4.0" }
 gtk5 = { source = "gtk/gtk-5.0", target = ".config/gtk-5.0" }
 gtk6 = { source = "gtk/gtk-6.0", target = ".config/gtk-6.0" }
+hypr = { source = "hypr", target = ".config/hypr" }
 i3 = { source = "i3", target = ".config/i3" }
 kitty = { source = "kitty", target = ".config/kitty" }
 lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
@@ -35,6 +38,7 @@ ranger = { source = "ranger", target = ".config/ranger" }
 rofi = { source = "rofi", target = ".config/rofi" }
 roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
 screenlayout = { source = "screenlayout", target = ".config/screenlayout" }
+swaylock = { source = "swaylock", target = ".config/swaylock" }
 vim = { source = "vim/vimrc", target = ".config/vim/vimrc" }
 X11 = { source = "X11", target = ".config/X11" }
 zsh = { source = "zsh", target = ".config/zsh" }
