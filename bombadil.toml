@@ -14,6 +14,8 @@ editorconfig = { source = "home/editorconfig", target = ".editorconfig" }
 xinitrc = { source = "home/xinitrc", target = ".xinitrc" }
 
 picom = { source = "config/picom.conf", target = ".config/picom.conf" }
+electron = { source = "config/electron-flags.conf", target = ".config/electron-flags.conf" }
+
 git = { source = "git/config", target = ".config/git/config" }
 
 bash = { source = "bash", target = ".config/bash" }
