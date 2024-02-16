@@ -2,10 +2,11 @@
 
 from pathlib import Path
 from random import sample
+from socket import gethostname
 from subprocess import run
 
 
-MONITORS = ("DP-1", "DP-2", "HDMI-A-1")
+MONITORS = ("DP-1", "DP-2", "HDMI-A-1") if gethostname() == "chonk" else ("eDP-1",)
 
 ANGLE_TRANSITION_ARGS = [
 	"--transition-type", "wipe",

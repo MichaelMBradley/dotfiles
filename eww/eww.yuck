@@ -29,7 +29,7 @@
 
 (deflisten audio :initial "--" "~/.config/eww/scripts/get-audio")
 (defwidget volume []
-  (eventbox :onscroll "~/.config/eww/scripts/adjust-volume {}" :cursor "row-resize"
+  (eventbox :cursor "row-resize" :onscroll "~/.config/eww/scripts/adjust-volume {}" :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     (label_value :text "" :value {audio.muted ? "muted" : "${audio.volume}%"} :value_class {audio.muted ? "muted" : ""})))
 (defwidget audio_source []
   (eventbox :onclick "~/.config/eww/scripts/swap-audio-source" :cursor "pointer"
@@ -94,6 +94,16 @@
   (label :text ""))
 
 
+;(deflisten brightness :initial "--" "~/.config/eww/scripts/get-brightness")
+(defwidget brightness []
+  (eventbox :onscroll "~/.config/eww/scripts/adjust-brightness {}" :cursor "row-resize"
+    (label_value :text "󰌵" :value "50%")))
+
+
+(defwidget battery []
+  (label :text ""))
+
+
 (defwidget left_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
@@ -122,7 +132,7 @@
 (defwidget above_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
-      (workspaces :monitor "HDMI-A-1"))
+      (workspaces :monitor "DP-1"))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (notifications)
@@ -137,6 +147,28 @@
       (volume)
       (sep)
       (datetime))))
+
+(defwidget laptop_bar []
+  (centerbox :class "bar" :orientation "h"
+    (box :class "left" :orientation "h" :space-evenly false :halign "begin"
+      (workspaces :monitor "eDP-1")
+      (sep)
+      (window))
+    (systray :pack_direction "ltr" :icon-size 20)
+    (box :class "right" :orientation "h" :space-evenly false :halign "end"
+      (color_selector)
+      (sep)
+      (ram)
+      (cpu)
+      (wlan)
+      (battery)
+      (sep)
+      (brightness)
+      (volume)
+      (sep)
+      (datetime)
+      (sep)
+      (power))))
 
 
 (defwindow left
@@ -172,4 +204,16 @@
   :exclusive true
   :focusable false
   (above_bar))
+
+(defwindow laptop
+  :monitor 0
+  :geometry (geometry :x "0px"
+                      :y "4px"
+                      :width "1912px"
+                      :height "24px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (laptop_bar))
 
