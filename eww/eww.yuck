@@ -132,7 +132,7 @@
 (defwidget above_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
-      (workspaces :monitor "DP-1"))
+      (workspaces :monitor "HDMI-A-1"))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (notifications)
