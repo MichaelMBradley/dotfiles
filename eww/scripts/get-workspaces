@@ -4,7 +4,7 @@
 
 spaces (){
 	ACTIVE_ID=$(hyprctl activeworkspace -j | jq -Mc ".id")
-	hyprctl workspaces -j | jq -Mc "map({id: .id, name: .name, monitor: .monitor, active: [.id == $ACTIVE_ID][0]})"
+	hyprctl workspaces -j | jq -Mc "map({id: .id, name: .name, monitor: .monitor, active: [.id == $ACTIVE_ID][0]}) | sort_by(.id)"
 }
 
 spaces
