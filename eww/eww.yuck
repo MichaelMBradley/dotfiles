@@ -101,8 +101,9 @@
     (label_value :text "󰌵" :value "${brightness}%")))
 
 
+(defpoll battery :initial "-" :interval 30 "~/.config/eww/scripts/get-battery")
 (defwidget battery []
-  (label :text ""))
+  (label_value :text "" :value {battery}))
 
 
 (defwidget left_bar []
