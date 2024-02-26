@@ -1,6 +1,6 @@
 #!/bin/env sh
 
-DELTA="5%"
+DELTA="1%"
 
 case "$1" in
 	up) brightnessctl -m -c backlight set +"$DELTA"

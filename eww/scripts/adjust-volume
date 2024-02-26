@@ -1,9 +1,11 @@
 #!/bin/env sh
 
+DELTA="1%"
+
 case "$1" in
-	"up") pactl set-sink-volume @DEFAULT_SINK@ +5%
+	"up") pactl set-sink-volume @DEFAULT_SINK@ +"$DELTA"
 	;;
-	"down") pactl set-sink-volume @DEFAULT_SINK@ -5%
+	"down") pactl set-sink-volume @DEFAULT_SINK@ -"$DELTA"
 	;;
 	*) exit 1
 	;;
