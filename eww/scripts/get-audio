@@ -24,7 +24,7 @@ audio_sink() {
 		;;
 		"$SPEAKERS") echo $SPEAKERS_ICON
 		;;
-		*) echo $UNKNOWN_ICONN
+		*) echo $UNKNOWN_ICON
 		;;
 	esac
 }
@@ -40,7 +40,7 @@ audio_source() {
 		;;
 		"$BLUE") echo $BLUE_ICON
 		;;
-		*) echo $UNKNOWN_ICONN
+		*) echo $UNKNOWN_ICON
 		;;
 	esac
 }
@@ -49,6 +49,8 @@ audio() {
 	echo "{\"volume\":$(volume),\"muted\":$(mute),\"sink\":\"$(audio_sink)\",\"source\":\"$(audio_source)\"}"
 }
 
+audio
+sleep 3
 audio
 pactl subscribe | while read -r LINE; do
 	if [[ "$LINE" =~ 'change' ]]; then

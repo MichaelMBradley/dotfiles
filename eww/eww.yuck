@@ -25,7 +25,7 @@
 (deflisten window :initial "..." "~/.config/eww/scripts/get-window-title")
 (defwidget window []
   (box
-    (label :text "${window}")))
+    (label :text {window ?: ""})))
 
 (deflisten audio :initial "--" "~/.config/eww/scripts/get-audio")
 (defwidget volume []
