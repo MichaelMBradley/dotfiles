@@ -94,10 +94,11 @@
   (label :text ""))
 
 
-;(deflisten brightness :initial "--" "~/.config/eww/scripts/get-brightness")
+; TODO: Make listener
+(defpoll brightness :initial "50" :interval 60 "~/.config/eww/scripts/backlight get")
 (defwidget brightness []
-  (eventbox :onscroll "~/.config/eww/scripts/adjust-brightness {}" :cursor "row-resize"
-    (label_value :text "󰌵" :value "50%")))
+  (eventbox :onscroll "~/.config/eww/scripts/backlight {}" :cursor "row-resize"
+    (label_value :text "󰌵" :value "${brightness}%")))
 
 
 (defwidget battery []

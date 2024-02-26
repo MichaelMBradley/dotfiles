@@ -1,0 +1,15 @@
+#!/bin/env sh
+
+DELTA="5%"
+
+case "$1" in
+	up) brightnessctl -m -c backlight set +"$DELTA"
+	;;
+	down) brightnessctl -m -c backlight set "$DELTA"-
+	;;
+	get) brightnessctl -m -c backlight get
+	;;
+	*) echo "Unrecognized command"; exit 1
+	;;
+esac
+
