@@ -30,6 +30,7 @@ window, tooltip {
 
 .sep {
 	color: $disabled;
+	margin: 0 3pt;
 }
 
 .workspaces .current {
@@ -42,7 +43,12 @@ window, tooltip {
 
 .label_circle .label {
 	color: $primary;
-	margin-right: 2px;
+	margin-right: 3pt;
+}
+
+.label_circle .value {
+	color: $foreground;
+	background-color: $disabled;
 }
 
 .label_value .label {
@@ -81,5 +87,9 @@ window, tooltip {
 	.control {
 		color: $primary;
 	}
+}
+
+.primary {
+	color: $primary;
 }
 

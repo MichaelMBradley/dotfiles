@@ -1,11 +1,11 @@
 (defwidget label_circle [text value]
-  (box :class "label_circle"
+  (box :class "label_circle" :space-evenly false
     (label :text text :class "label")
     (circular-progress :value {value < 1 ? 1 : value} :clockwise true :start-at 25 :thickness 2 :class "value")))
 
 
 (defwidget label_value [text value ?text_class ?value_class]
-  (box :class "label_value"
+  (box :class "label_value" :space-evenly false
     (label :text text :class "label ${text_class}")
     (label :text value :class "value ${value_class}")))
 
@@ -19,7 +19,7 @@
   (box :space-evenly true :class "workspaces"
     (for workspace in workspaces
       (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {workspace.monitor == monitor} :class {workspace.active ? "current" : ""} :cursor "pointer"
-        (label :text "${workspace.name}")))))
+        (label :text {workspace.name})))))
 
 
 (deflisten window :initial "..." "~/.config/eww/scripts/get-window-title")
@@ -51,8 +51,14 @@
   (label_circle :text "" :value {EWW_CPU.avg}))
 
 
+(defwidget network_speed [label data]
+  (label_value :text label :value "󰶡${data.rx}K 󰶣${data.tx}K"))
+(deflisten enp6s0 :initial '{"rx":0,"tx":0}' "~/.config/eww/scripts/network-statistics enp6s0 2")
 (defwidget eth []
-  (label :text "󰈀"))
+  (network_speed :label "󰈀" :data {enp6s0}))
+(deflisten wlo1 :initial '{"rx":0,"tx":0}' "~/.config/eww/scripts/network-statistics wlo1 2")
+(defwidget wlan []
+  (network_speed :label "" :data {wlo1}))
 
 
 (defwidget datetime []
@@ -78,29 +84,28 @@
       (label :text {reveal_power ? "×" : ""} :class "control"))))
 
 
+(defvar notifications true)
 (defwidget notifications []
-  (label :text ""))
+  (eventbox :onclick "eww update notifications=${!notifications} ; dunstctl set-paused ${notifications}" :cursor "pointer"
+    (label :text {notifications ? "" : ""} :class "primary")))
 
 
+(defwidget clicker [text command]
+  (eventbox :onclick command :cursor "pointer" :timeout "3600s"
+    (label :text text :class "primary")))
 (defwidget color_selector []
-  (label :text ""))
-
-
+  (clicker :text "" :command "/usr/bin/hyprpicker -a"))
 (defwidget wallpaper []
-  (label :text "󰸉"))
+  (clicker :text "󰸉" :command "~/scripts/swww_change.py"))
 
 
-(defwidget wlan []
-  (label :text ""))
-
-
-; TODO: Make listener
 (defpoll brightness :initial "50" :interval 60 "~/.config/eww/scripts/backlight get")
 (defwidget brightness []
   (eventbox :onscroll "~/.config/eww/scripts/backlight {}" :cursor "row-resize"
     (label_value :text "󰌵" :value "${brightness}%")))
 
 
+; TODO: Either refactor to use EWW_BATTERY variable or have script output fancier presentation
 (defpoll battery :initial "-" :interval 30 "~/.config/eww/scripts/get-battery")
 (defwidget battery []
   (label_value :text "" :value {battery}))

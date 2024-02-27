@@ -1,0 +1,46 @@
+#!/bin/env sh
+
+# TODO: Generalize to print info out for all interfaces
+INTERFACE="$1"
+INTERVAL="$2"
+
+if [ "$INTERFACE" == "" ]; then
+	echo "Must provide interface name"
+	exit 1
+fi
+
+if [ ! -d "/sys/class/net/$INTERFACE" ]; then
+	echo "Not a valid interface"
+	exit 1
+fi
+
+if [ "$INTERVAL" == "" ]; then
+	echo "Must provide polling interval"
+	exit 1
+fi
+
+CURR_TX="0"
+CURR_RX="0"
+PREV_TX="0"
+PREV_RX="0"
+
+update_stats() {
+	PREV_TX="$CURR_TX"
+	PREV_RX="$CURR_RX"
+	CURR_TX="$(cat "/sys/class/net/$INTERFACE/statistics/tx_bytes")"
+	CURR_RX="$(cat "/sys/class/net/$INTERFACE/statistics/rx_bytes")"
+}
+
+print_stats() {
+	echo "{\"tx\":$(((CURR_TX - PREV_TX) / INTERVAL / 1024)),\"rx\":$(((CURR_RX - PREV_RX) / INTERVAL / 1024))}"
+}
+
+update_stats
+update_stats
+
+while true; do
+	print_stats
+	sleep "$INTERVAL"
+	update_stats
+done
+
