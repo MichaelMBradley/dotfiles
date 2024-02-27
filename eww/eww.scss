@@ -89,6 +89,10 @@ window, tooltip {
 	}
 }
 
+.disabled {
+	color: $disabled;
+}
+
 .primary {
 	color: $primary;
 }

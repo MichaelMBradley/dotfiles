@@ -1,46 +1,117 @@
-#!/bin/env sh
+#!/bin/env python
+"""Script that outputs network activity"""
 
-# TODO: Generalize to print info out for all interfaces
-INTERFACE="$1"
-INTERVAL="$2"
+from pathlib import Path
+from json import dumps
+from sys import argv
+from time import sleep
+from typing import Literal, NoReturn
 
-if [ "$INTERFACE" == "" ]; then
-	echo "Must provide interface name"
-	exit 1
-fi
 
-if [ ! -d "/sys/class/net/$INTERFACE" ]; then
-	echo "Not a valid interface"
-	exit 1
-fi
+def get_interfaces() -> list[Path]:
+	return list(Path("/sys/class/net/").glob("*"))
 
-if [ "$INTERVAL" == "" ]; then
-	echo "Must provide polling interval"
-	exit 1
-fi
 
-CURR_TX="0"
-CURR_RX="0"
-PREV_TX="0"
-PREV_RX="0"
+class TransferredBytes:
+	def __init__(self, interface: Path, statistic: Literal["tx"] | Literal["rx"]) -> None:
+		self._statistic = interface / f"statistics/{statistic}_bytes"
+		self._current = int(self._statistic.read_text())
+		self._previous = self._current
 
-update_stats() {
-	PREV_TX="$CURR_TX"
-	PREV_RX="$CURR_RX"
-	CURR_TX="$(cat "/sys/class/net/$INTERFACE/statistics/tx_bytes")"
-	CURR_RX="$(cat "/sys/class/net/$INTERFACE/statistics/rx_bytes")"
-}
+	def update(self) -> None:
+		self._previous = self._current
+		self._current = int(self._statistic.read_text())
 
-print_stats() {
-	echo "{\"tx\":$(((CURR_TX - PREV_TX) / INTERVAL / 1024)),\"rx\":$(((CURR_RX - PREV_RX) / INTERVAL / 1024))}"
-}
+	def value(self, interval: float) -> float:
+		return (self._current - self._previous) / interval
 
-update_stats
-update_stats
 
-while true; do
-	print_stats
-	sleep "$INTERVAL"
-	update_stats
-done
+class Status:
+	def __init__(self, interface: Path) -> None:
+		self._statistic = interface / "operstate"
+
+	def up(self) -> bool:
+		return self._statistic.read_text().strip() == "up"
+
+
+def format_4_significant_digits(num: float) -> str:
+	if num < 100:
+		return f"{num:#.3g}"
+	if num < 1000:
+		return f" {num:.3g}"
+	return f"{num:.4g}"
+
+
+EBI_UNITS = ("B", "kiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB", "RiB", "QiB")
+SHORT_UNITS = ("B", "k", "M", "G", "T", "P", "E", "Z", "Y", "R", "Q")
+
+
+def format_bytes(num: float) -> str:
+	for prefix in SHORT_UNITS:
+		if num < 1024:
+			return f"{format_4_significant_digits(num)}{prefix}"
+		num /= 1024
+	return "what the fuck"
+
+
+class Interface:
+	def __init__(self, location: Path) -> None:
+		self._location = location
+		self._tx = TransferredBytes(location, "tx")
+		self._rx = TransferredBytes(location, "rx")
+		self._status = Status(location)
+
+	@property
+	def name(self) -> str:
+		return self._location.name
+
+	def update(self) -> None:
+		self._tx.update()
+		self._rx.update()
+
+	def json(self, interval: float) -> dict[str, str | bool]:
+		interval_tx = self._tx.value(interval)
+		interval_rx = self._rx.value(interval)
+
+		return {
+			"tx": format_bytes(interval_tx),
+			"rx": format_bytes(interval_rx),
+			"combined": format_bytes(interval_tx + interval_rx),
+			"up": self._status.up(),
+		}
+
+
+class Statistics:
+	def __init__(self) -> None:
+		self._interfaces = [Interface(location) for location in get_interfaces()]
+
+	def update(self) -> None:
+		for interface in self._interfaces:
+			interface.update()
+
+	def json(self, interval: float) -> str:
+		return dumps(
+			{
+				interface.name: interface.json(interval) for interface in self._interfaces
+			},
+			separators=(',', ':'),
+		)
+
+
+def main(interval: float) -> NoReturn:
+	stats = Statistics()
+	sleep(0.5)
+	stats.update()
+	print(stats.json(interval))
+
+	while True:
+		sleep(interval)
+		stats.update()
+		print(stats.json(interval), flush=True)
+
+
+if __name__ == "__main__":
+	if len(argv) != 2:
+		exit("Must provide 1 arg: Polling interval")
+	main(float(argv[1]))
 
