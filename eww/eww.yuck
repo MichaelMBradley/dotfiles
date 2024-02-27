@@ -94,7 +94,7 @@
   (eventbox :onclick command :cursor "pointer" :timeout "3600s"
     (label :text text :class "primary")))
 (defwidget color_selector []
-  (clicker :text "" :command "/usr/bin/hyprpicker -a"))
+  (clicker :text "" :command "hyprpicker -a"))
 (defwidget wallpaper []
   (clicker :text "󰸉" :command "~/scripts/swww_change.py"))
 
