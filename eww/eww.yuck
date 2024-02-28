@@ -31,8 +31,8 @@
 
 (deflisten audio :initial "--" "~/.config/eww/scripts/get-audio")
 (defwidget volume []
-  (eventbox :cursor "row-resize" :onscroll "~/.config/eww/scripts/adjust-volume {}" :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-    (label_value :text "" :value {audio.muted ? "muted" : "${audio.volume}%"} :value_class {audio.muted ? "muted" : ""})))
+  (eventbox :cursor {audio.muted ? "pointer" : "row-resize"} :onscroll "~/.config/eww/scripts/adjust-volume {}" :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    (label_value :text {audio.muted ? "󰝟" : "󰕾"} :value "${audio.volume}%" :value_class {audio.muted ? "muted" : ""})))
 (defwidget audio_source []
   (eventbox :onclick "~/.config/eww/scripts/swap-audio-source" :cursor "pointer"
     (label :text {audio.source} :class "audio-info")))
