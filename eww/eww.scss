@@ -33,8 +33,21 @@ window, tooltip {
 	margin: 0 3pt;
 }
 
+.space {
+	margin-left: 4pt;
+}
+
+.workspaces {
+	margin-top: 1px;
+}
+
+.workspaces * {
+	padding: 0 4pt;
+}
+
 .workspaces .current {
-	color: $primary;
+	background-color: rgba($color: #FFF, $alpha: 0.1);
+	border-bottom: 2px solid $primary;
 }
 
 .audio-info {
@@ -47,7 +60,6 @@ window, tooltip {
 }
 
 .label_circle .value {
-	color: $foreground;
 	background-color: $disabled;
 }
 

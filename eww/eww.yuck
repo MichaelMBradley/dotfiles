@@ -1,7 +1,7 @@
 (defwidget label_circle [text value]
   (box :class "label_circle" :space-evenly false
     (label :text text :class "label")
-    (circular-progress :value {value < 1 ? 1 : value} :clockwise true :start-at 25 :thickness 2 :class "value")))
+    (circular-progress :value {value < 1 ? 1 : value} :clockwise true :start-at 25 :thickness 6 :class "value")))
 
 
 (defwidget label_value [text value ?text_class ?value_class]
@@ -12,6 +12,8 @@
 
 (defwidget sep []
   (label :text "|" :class "sep"))
+(defwidget space []
+  (label :text " " :class "space"))
 
 
 (deflisten workspaces :initial "[]" "~/.config/eww/scripts/get-workspaces")
@@ -122,7 +124,7 @@
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (volume)
       (sep)
-      (audio_source)
+      (audio_source)(space)
       (audio_sink))))
 (defwidget right_bar []
   (centerbox :class "bar" :orientation "h"
@@ -130,8 +132,8 @@
       (workspaces :monitor "DP-1"))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
-      (ram)
-      (cpu)
+      (ram)(space)
+      (cpu)(space)
       (eth)
       (sep)
       (datetime)
@@ -143,13 +145,13 @@
       (workspaces :monitor "HDMI-A-1"))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
-      (notifications)
-      (color_selector)
+      (notifications)(space)
+      (color_selector)(space)
       (wallpaper)
       (sep)
       (wlan)
       (sep)
-      (mountpoint :label "/" :mount "/")
+      (mountpoint :label "/" :mount "/")(space)
       (mountpoint :label "󰋊" :mount "/home/mbradley/hdd")
       (sep)
       (volume)
