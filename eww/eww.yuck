@@ -10,17 +10,17 @@
     (label :text value :class "value ${value_class}")))
 
 
-(defwidget sep []
-  (label :text "|" :class "sep"))
+(defwidget sep [?class]
+  (label :text "|" :class "sep ${class}"))
 (defwidget space []
   (label :text " " :class "space"))
 
 
 (deflisten workspaces :initial "[]" "~/.config/eww/scripts/get-workspaces")
 (defwidget workspaces [monitor]
-  (box :space-evenly true :class "workspaces"
+  (box :space-evenly false :class "workspaces"
     (for workspace in workspaces
-      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {workspace.monitor == monitor} :class {workspace.active ? "current" : ""} :cursor "pointer"
+      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {workspace.monitor == monitor} :class "${workspace.active ? "current" : ""} ${workspace.id < 4 ? "first" : ""}" :cursor "pointer"
         (label :text {workspace.name})))))
 
 
@@ -118,7 +118,7 @@
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
       (workspaces :monitor "DP-2")
-      (sep)
+      (sep :class "no-left-pad")
       (window))
     (box)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"

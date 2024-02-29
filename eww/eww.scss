@@ -25,29 +25,41 @@ window, tooltip {
 
 
 .bar {
-	padding: 0 6px;
+	padding: 0 6px 0 0px;
 }
 
 .sep {
 	color: $disabled;
-	margin: 0 3pt;
+	margin: 0 3px;
+}
+
+.no-left-pad {
+	margin-left: 0px;
 }
 
 .space {
-	margin-left: 4pt;
+	margin-left: 4px;
 }
 
 .workspaces {
 	margin-top: 1px;
 }
 
-.workspaces * {
-	padding: 0 4pt;
-}
+.workspaces {
+	* {
+		padding: 0 3px;
+	}
 
-.workspaces .current {
-	background-color: rgba($color: #FFF, $alpha: 0.1);
-	border-bottom: 2px solid $primary;
+	.current {
+		background-color: rgba($color: #FFF, $alpha: 0.1);
+		border-bottom: 2px solid $primary;
+	}
+
+	.first {
+		border-radius: 8px 0 0 8px;
+		// FIXME: Not being represented in UI for some reason
+		padding: 0 2px 0 4px;
+	}
 }
 
 .audio-info {
