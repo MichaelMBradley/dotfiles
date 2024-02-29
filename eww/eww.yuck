@@ -117,13 +117,11 @@
 (defwidget left_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
-      (workspaces :monitor "DP-2")
-      (sep :class "no-left-pad")
+      (workspaces :monitor "DP-2")(sep :class "no-left-pad")
       (window))
     (box)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
-      (volume)
-      (sep)
+      (volume)(sep)
       (audio_source)(space)
       (audio_sink))))
 (defwidget right_bar []
@@ -133,11 +131,9 @@
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (ram)(space)
-      (cpu)(space)
-      (eth)
-      (sep)
-      (datetime)
-      (sep)
+      (cpu)(sep)
+      (eth)(sep)
+      (datetime)(sep)
       (power))))
 (defwidget above_bar []
   (centerbox :class "bar" :orientation "h"
@@ -147,39 +143,29 @@
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (notifications)(space)
       (color_selector)(space)
-      (wallpaper)
-      (sep)
-      (wlan)
-      (sep)
+      (wallpaper)(sep)
+      (wlan)(sep)
       (mountpoint :label "/" :mount "/")(space)
-      (mountpoint :label "󰋊" :mount "/home/mbradley/hdd")
-      (sep)
-      (volume)
-      (sep)
+      (mountpoint :label "󰋊" :mount "/home/mbradley/hdd")(sep)
+      (volume)(sep)
       (datetime))))
 
 (defwidget laptop_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
-      (workspaces :monitor "eDP-1")
-      (sep)
+      (workspaces :monitor "eDP-1")(sep)
       (window))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (color_selector)(space)
-      (wallpaper)
-      (sep)
+      (wallpaper)(sep)
       (ram)(space)
-      (cpu)
-      (sep)
+      (cpu)(sep)
       (wlan)(space)
-      (battery)
-      (sep)
+      (battery)(sep)
       (brightness)(space)
-      (volume)
-      (sep)
-      (datetime)
-      (sep)
+      (volume)(sep)
+      (datetime)(sep)
       (power))))
 
 
