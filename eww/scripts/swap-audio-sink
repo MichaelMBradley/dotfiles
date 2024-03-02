@@ -1,11 +1,11 @@
 #!/bin/env sh
 
-HEADPHONES='alsa_output.usb-Audeze_LLC_Audeze_Maxwell_Dongle_0000000000000000-01.analog-stereo'
-SPEAKERS='alsa_output.usb-Generic_USB_Audio-00.HiFi__hw_Audio_1__sink'
+HEADPHONES="$(~/.config/eww/scripts/get-audio-device-id 'headphones')"
+SPEAKERS="$(~/.config/eww/scripts/get-audio-device-id 'speakers')"
 
-if [ "$(pactl get-default-sink)" == "${HEADPHONES}" ] ; then
-  pactl set-default-sink "${SPEAKERS}"
-else
+if [ "$(pactl get-default-sink)" == "${SPEAKERS}" ] ; then
   pactl set-default-sink "${HEADPHONES}"
+else
+  pactl set-default-sink "${SPEAKERS}"
 fi
 

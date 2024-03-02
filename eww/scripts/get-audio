@@ -12,9 +12,13 @@ mute() {
 	fi
 }
 
-HEADPHONES='alsa_output.usb-Audeze_LLC_Audeze_Maxwell_Dongle_0000000000000000-01.analog-stereo'
+get_device_id() {
+	~/.config/eww/scripts/get-audio-device-id "$1"
+}
+
+HEADPHONES="$(get_device_id 'headphones')"
 HEADPHONES_ICON='󰋋'
-SPEAKERS='alsa_output.usb-Generic_USB_Audio-00.HiFi__hw_Audio_1__sink'
+SPEAKERS="$(get_device_id 'speakers')"
 SPEAKERS_ICON='󰓃'
 UNKNOWN_ICON='?'
 
@@ -29,16 +33,16 @@ audio_sink() {
 	esac
 }
 
-HEADPHONE_MIC='alsa_input.usb-Audeze_LLC_Audeze_Maxwell_Dongle_0000000000000000-01.mono-fallback'
+HEADPHONE_MIC="$(get_device_id 'headphone_mic')"
 HEADPHONE_MIC_ICON='󰋎'
-BLUE='alsa_input.usb-Generic_Blue_Microphones_LT_2007151539505F39045F_111000-00.analog-stereo'
-BLUE_ICON=''
+BLUE_MIC="$(get_device_id 'blue_mic')"
+BLUE_MIC_ICON=''
 
 audio_source() {
 	case "$(pactl get-default-source)" in
 		"$HEADPHONE_MIC") echo $HEADPHONE_MIC_ICON
 		;;
-		"$BLUE") echo $BLUE_ICON
+		"$BLUE_MIC") echo $BLUE_MIC_ICON
 		;;
 		*) echo $UNKNOWN_ICON
 		;;

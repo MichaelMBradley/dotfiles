@@ -1,11 +1,11 @@
 #!/bin/env sh
 
-HEADPHONES='alsa_input.usb-Audeze_LLC_Audeze_Maxwell_Dongle_0000000000000000-01.mono-fallback'
-MIC='alsa_input.usb-Generic_Blue_Microphones_LT_2007151539505F39045F_111000-00.analog-stereo'
+HEADPHONE_MIC="$(~/.config/eww/scripts/get-audio-device-id 'headphone_mic')"
+BLUE_MIC="$(~/.config/eww/scripts/get-audio-device-id 'blue_mic')"
 
-if [ "$(pactl get-default-source)" == "${HEADPHONES}" ] ; then
-  pactl set-default-source "${MIC}"
+if [ "$(pactl get-default-source)" == "${BLUE_MIC}" ] ; then
+  pactl set-default-source "${HEADPHONE_MIC}"
 else
-  pactl set-default-source "${HEADPHONES}"
+  pactl set-default-source "${BLUE_MIC}"
 fi
 
