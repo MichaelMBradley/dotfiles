@@ -74,8 +74,8 @@
   (box :space-evenly false :class "power"
     (revealer :transition "slideleft" :reveal reveal_power
       (box :space-evenly true
-        (eventbox :onclick "swaylock" :cursor "pointer"
-          (label :text "" :class "lock"))
+;        (eventbox :onclick "swaylock" :cursor "pointer"
+;          (label :text "" :class "lock"))
         (eventbox :onclick "systemctl suspend" :cursor "pointer"
           (label :text "鈴" :class "sleep"))
         (eventbox :onclick "reboot" :cursor "pointer"
@@ -84,6 +84,11 @@
           (label :text "" :class "shutdown"))))
     (eventbox :onclick "eww update reveal_power=${!reveal_power}" :cursor "pointer"
       (label :text {reveal_power ? "×" : ""} :class "control"))))
+; Unused entries from my Polybar version of this that may end up being useful later
+;menu-0-2 = %{F#7FFF00}
+;menu-0-2-exec = systemctl hibernate
+;menu-0-3 = %{F#00A2ED}
+;menu-0-3-exec = grub-reboot "$(rg -i windows /boot/grub/grub.cfg|head -n 1|cut -d "'" -f 2)" && reboot
 
 
 (defvar notifications true)
