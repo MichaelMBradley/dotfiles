@@ -119,6 +119,12 @@
   (label_value :text "" :value {battery}))
 
 
+(defpoll shader :intiial "" :interval 60 "hyprshade current")
+(defwidget shader []
+  (eventbox :onclick {shader == "" ? "hyprshade auto" : "hyprshade off"} :cursor "pointer"
+    (label :text {shader == "" ? "" : "󰖔"} :class "primary")))
+
+
 (defwidget left_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
@@ -148,7 +154,8 @@
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (notifications)(space)
       (color_selector)(space)
-      (wallpaper)(sep)
+      (wallpaper)(space)
+      (shader)(sep)
       (wlan)(sep)
       (mountpoint :label "/" :mount "/")(space)
       (mountpoint :label "󰋊" :mount "/home/mbradley/hdd")(sep)
