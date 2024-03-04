@@ -11,9 +11,7 @@ templates = { source = "Templates", target = "Templates" }
 scripts = { source = "scripts", target = "scripts" }
 
 editorconfig = { source = "home/editorconfig", target = ".editorconfig" }
-xinitrc = { source = "home/xinitrc", target = ".xinitrc" }
 
-picom = { source = "config/picom.conf", target = ".config/picom.conf" }
 electron = { source = "config/electron-flags.conf", target = ".config/electron-flags.conf" }
 electron28 = { source = "config/electron-flags.conf", target = ".config/electron28-flags.conf" }
 discord = { source = "config/electron-flags.conf", target = ".config/discord-flags.conf" }
@@ -31,19 +29,15 @@ gtk4 = { source = "gtk/gtk-4.0", target = ".config/gtk-4.0" }
 gtk5 = { source = "gtk/gtk-5.0", target = ".config/gtk-5.0" }
 gtk6 = { source = "gtk/gtk-6.0", target = ".config/gtk-6.0" }
 hypr = { source = "hypr", target = ".config/hypr" }
-i3 = { source = "i3", target = ".config/i3" }
 kitty = { source = "kitty", target = ".config/kitty" }
 lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
 nautilus-scripts = { source = "nautilus-scripts", target = ".local/share/nautilus/scripts" }
 nvim = { source = "nvim", target = ".config/nvim" }
 pipewire = { source = "pipewire", target = ".config/pipewire" }
-polybar = { source = "polybar", target = ".config/polybar" }
 ranger = { source = "ranger", target = ".config/ranger" }
 rofi = { source = "rofi", target = ".config/rofi" }
 roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
-screenlayout = { source = "screenlayout", target = ".config/screenlayout" }
 swaylock = { source = "swaylock", target = ".config/swaylock" }
 vim = { source = "vim/vimrc", target = ".config/vim/vimrc" }
-X11 = { source = "X11", target = ".config/X11" }
 zsh = { source = "zsh", target = ".config/zsh" }
 
