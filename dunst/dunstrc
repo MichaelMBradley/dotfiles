@@ -22,12 +22,10 @@
     ### Geometry ###
 
     # dynamic width from 0 to 300
-    # width = (0, 300)
-    # constant width of 300
-    width = (0, 400)
+    width = (0, 800)
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = 400
 
     # Position the notification in the top right corner
     #origin = top-right
@@ -40,7 +38,7 @@
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 0
+    notification_limit = 20
 
     ### Progress bar ###
 
@@ -100,7 +98,7 @@
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 2
 
     # Define a color for the separator.
     # possible values are:
@@ -118,7 +116,7 @@
     # Set to 0 to disable.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
-    # idle_threshold = 120
+    idle_threshold = 120
 
     ### Text ###
 
@@ -231,7 +229,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/rofi -theme dmenu -p dunst:
+    dmenu = /usr/bin/rofi -p dunst:
 
     # Browser for opening urls in context menu.
 #    browser = /usr/bin/xdg-open
@@ -317,7 +315,7 @@
     #foreground = "#707880"
     foreground = "#c5c8c6"
     frame_color = "#c5c8c6"
-    timeout = 10
+    timeout = 0
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -325,7 +323,7 @@
     #background = "#282a2e"
     foreground = "#c5c8c6"
     frame_color = "#f0c674"
-    timeout = 10
+    timeout = 0
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
