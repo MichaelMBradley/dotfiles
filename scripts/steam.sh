@@ -18,7 +18,7 @@ hyprctl --batch "\
 #  keyword general:gaps_in 0;\
 
 # Run Steam with Gamemode
-gamemoderun steam-runtime $@
+gamemoderun steam-native $@
 
 # Restore effects
 hyprctl reload
