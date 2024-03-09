@@ -12,13 +12,13 @@ export RECOLL_CONFDIR="$XDG_CONFIG_HOME/recoll"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export ZSH="$XDG_DATA_HOME/oh-my-zsh"
-#export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export RANDFILE="$XDG_CACHE_HOME/.rnd"
 export VIMINIT='let $MYVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME/vim/vimrc" : "$XDG_CONFIG_HOME/nvim/init.vim" | so $MYVIMRC'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export W3M_DIR="$XDG_DATA_HOME/w3m"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+export TF_CPP_MAX_VLOG_LEVEL=-1
 
 export PATH="$PATH:/home/mbradley/.local/share/JetBrains/Toolbox/scripts:/home/mbradley/scripts"
 
@@ -107,8 +107,6 @@ help() {
 }
 
 alias n="nvim"
-#alias vi="lvim"
-#alias vim="lvim"
 if [[ "$TERM" == "linux" ]] ; then
   export EDITOR="vim"
 else
@@ -120,11 +118,8 @@ alias sv="sudo vim"
 export VISUAL=$EDITOR
 
 export PATH="$PATH:/home/mbradley/.local/bin"
-#export QT_QPA_PLATFORMTHEME="qt5ct"
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
-
-#c
 
 #autoload -Uz compinit
 #compinit
