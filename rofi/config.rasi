@@ -1,6 +1,6 @@
 @theme "arthuredit"
 configuration {
- modi: "drun,emoji:/usr/bin/rofimoji -a copy -f emojis math,audio:/home/mbradley/dev/rofi-audio/rofi-audio.py";
+ modi: "drun,calc,emoji:/usr/bin/rofimoji -a copy -f emojis math,audio:/home/mbradley/dev/rofi-audio/rofi-audio.py";
  combi-modi: "drun,filebrowser,emoji";
  icon-theme: "Papirus";
  show-icons: true;
