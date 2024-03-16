@@ -12,7 +12,7 @@ $disabled: #707880;
 * {
 	all: unset; //Unsets everything so you can style everything from scratch
 	font-family: "JetBrains Mono NFP", "MesloLGS NF", "FontAwesome";
-	font-size: 10pt;
+	font-size: 14px;
 }
 
 window, tooltip {
@@ -66,18 +66,18 @@ window, tooltip {
 	color: $primary;
 }
 
-.label_circle .label {
-	color: $primary;
-	margin-right: 3pt;
-}
-
 .label_circle .value {
 	background-color: $disabled;
+	.label {
+		color: $primary;
+		margin: 0 7px;
+		font-size: 13px;
+	}
 }
 
 .label_value .label {
 	color: $primary;
-	margin-right: 3pt;
+	margin-right: 4px;
 }
 
 .label_value .muted {

@@ -1,7 +1,7 @@
 (defwidget label_circle [text value]
   (box :class "label_circle" :space-evenly false
-    (label :text text :class "label")
-    (circular-progress :value {value < 1 ? 1 : value} :clockwise true :start-at 25 :thickness 6 :class "value")))
+    (circular-progress :value {value} :clockwise true :start-at 25 :thickness 3 :class "value"
+      (label :text text :class "label" :justify "center"))))
 
 
 (defwidget label_value [text value ?text_class ?value_class]
@@ -101,7 +101,7 @@
   (eventbox :onclick command :cursor "pointer" :timeout "3600s"
     (label :text text :class "primary")))
 (defwidget color_selector []
-  (clicker :text "" :command "hyprpicker -a"))
+  (clicker :text "" :command "hyprpicker -a & disown"))
 (defwidget wallpaper []
   (clicker :text "󰸉" :command "~/scripts/swww_change.py"))
 
