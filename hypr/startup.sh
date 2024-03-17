@@ -13,6 +13,6 @@ if [ "$(uname -n)" == "chonk" ]; then
   kitty @ --to 'unix:/tmp/kitty-command-1' send-text "c\n"
   kitty @ --to 'unix:/tmp/kitty-command-3' send-text "btop\n"
   sleep 0.5
-  hyprctl dispatch resizeactive 0 -290
+  hyprctl dispatch resizeactive 0 -270
 fi
 
