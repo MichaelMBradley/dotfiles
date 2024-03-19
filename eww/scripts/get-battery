@@ -2,6 +2,18 @@
 
 FULL="$(cat /sys/class/power_supply/BAT0/charge_full)"
 NOW="$(cat /sys/class/power_supply/BAT0/charge_now)"
+CHARGE=$((100*$NOW/$FULL))
 
-awk 'BEGIN{printf "%.0f\n", 100 * '"$NOW"' / '"$FULL"'}'
+CHARGE_ICONS="󰂎󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹"
+CHARGE_ICON_INDEX=$((CHARGE/10))
+CHARGE_ICON="${CHARGE_ICONS:CHARGE_ICON_INDEX:1}"
+
+charging() {
+  case "$(cat /sys/class/power_supply/BAT0/status)" in
+    "Charging") echo "true";;
+	*) echo "false";;
+  esac
+}
+
+echo "{\"charge\":$CHARGE,\"icon\":\"$CHARGE_ICON\",\"charging\":$(charging)}"
 

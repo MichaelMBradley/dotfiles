@@ -113,11 +113,9 @@
     (label_value :text "󰌵" :value "${brightness}%")))
 
 
-; TODO: Either refactor to use EWW_BATTERY variable or have script output fancier presentation.
-;       Potentially use stack with a defpoll that increments a defvar?
 (defpoll battery :initial "-" :interval 30 "~/.config/eww/scripts/get-battery")
 (defwidget battery []
-  (label_value :text "" :value {battery}))
+  (label_value :text {battery.charging ? "󰂄" : battery.icon} :value "${battery.charge}%"))
 
 
 (defpoll shader :intiial "" :interval 60 "hyprshade current")
