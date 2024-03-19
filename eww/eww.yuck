@@ -52,14 +52,15 @@
 (defwidget cpu []
   (label_circle :text "" :value {EWW_CPU.avg}))
 
+(defvar combined_interface true)
 (deflisten interfaces :initial '{}' "~/.config/eww/scripts/network-statistics-shell 5")
-(defwidget network_speed [label interface combined]
-  (label_value :text label :value {(interfaces?.[interface]?.up ?: false) ? (combined ? interfaces?.[interface]?.combined : "󰶡${interfaces?.[interface]?.rx} 󰶣${interfaces?.[interface]?.tx}") : "dc"} :value_class {(interfaces?.[interface]?.up ?: false) ? "" : "disabled"}))
-; TODO: Make combined a defvar toggleable on click
+(defwidget network_speed [label interface]
+  (eventbox :onclick "eww update combined_interface=${!combined_interface}" :cursor "pointer"
+    (label_value :text label :value {(interfaces?.[interface]?.up ?: false) ? (combined_interface ? interfaces?.[interface]?.combined : "󰶡${interfaces?.[interface]?.rx} 󰶣${interfaces?.[interface]?.tx}") : "dc"} :value_class {(interfaces?.[interface]?.up ?: false) ? "" : "disabled"})))
 (defwidget eth []
-  (network_speed :label "󰈀" :interface "enp6s0" :combined true))
+  (network_speed :label "󰈀" :interface "enp6s0"))
 (defwidget wlan []
-  (network_speed :label "" :interface "wlo1" :combined true))
+  (network_speed :label "" :interface "wlo1"))
 
 
 (defwidget datetime []
