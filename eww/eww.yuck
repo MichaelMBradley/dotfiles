@@ -115,7 +115,7 @@
 
 (defpoll battery :initial "-" :interval 30 "~/.config/eww/scripts/get-battery")
 (defwidget battery []
-  (label_value :text {battery.charging ? "󰂄" : battery.icon} :value "${battery.charge}%"))
+  (label_value :text {battery.charging ? "󰂄" : battery.icon} :value "${battery.charge}%" :value_class {battery.charge < 30 ? "alert" : ""}))
 
 
 (defpoll shader :intiial "" :interval 60 "hyprshade current")
