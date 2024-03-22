@@ -37,6 +37,7 @@ pipewire = { source = "pipewire", target = ".config/pipewire" }
 ranger = { source = "ranger", target = ".config/ranger" }
 rofi = { source = "rofi", target = ".config/rofi" }
 roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
+steam = { source = "steam/steam_dev.cfg", target = ".steam/steam/steam_dev.cfg" }
 swaylock = { source = "swaylock", target = ".config/swaylock" }
 vim = { source = "vim/vimrc", target = ".config/vim/vimrc" }
 zsh = { source = "zsh", target = ".config/zsh" }
