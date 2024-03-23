@@ -18,6 +18,9 @@ discord = { source = "config/electron-flags.conf", target = ".config/discord-fla
 
 git = { source = "git/config", target = ".config/git/config" }
 
+# Also needs a `systemctl --user enable --now ip-geolocation.service`
+systemd = { source = "systemd/ip-geolocation.service", target = ".config/systemd/user/ip-geolocation.service" }
+
 bash = { source = "bash", target = ".config/bash" }
 btop = { source = "btop", target = ".config/btop" }
 dunst = { source = "dunst", target = ".config/dunst" }
@@ -41,4 +44,3 @@ steam = { source = "steam/steam_dev.cfg", target = ".steam/steam/steam_dev.cfg" 
 swaylock = { source = "swaylock", target = ".config/swaylock" }
 vim = { source = "vim/vimrc", target = ".config/vim/vimrc" }
 zsh = { source = "zsh", target = ".config/zsh" }
-
