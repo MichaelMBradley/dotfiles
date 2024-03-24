@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+source ~/scripts/env_vars.sh
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
