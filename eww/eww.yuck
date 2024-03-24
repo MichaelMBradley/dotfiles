@@ -107,21 +107,26 @@
   (clicker :text "󰸉" :command "~/scripts/swww_change.py"))
 
 
-(defpoll brightness :initial "50" :interval 60 "~/.config/eww/scripts/backlight get")
+(defpoll brightness :interval 60 "~/.config/eww/scripts/backlight get")
 (defwidget brightness []
   (eventbox :onscroll "~/.config/eww/scripts/backlight {}" :cursor "row-resize"
     (label_value :text "󰌵" :value "${brightness}%")))
 
 
-(defpoll battery :initial "-" :interval 30 "~/.config/eww/scripts/get-battery")
+(defpoll battery :interval 30 "~/.config/eww/scripts/get-battery")
 (defwidget battery []
   (label_value :text {battery.charging ? "󰂄" : battery.icon} :value "${battery.charge}%" :value_class {battery.charge < 30 ? "alert" : ""}))
 
 
-(defpoll shader :intiial "" :interval 60 "hyprshade current")
+(defpoll shader :interval 60 "hyprshade current")
 (defwidget shader []
   (eventbox :onclick {shader == "" ? "hyprshade auto" : "hyprshade off"} :cursor "pointer"
     (label :text {shader == "" ? "" : "󰖔"} :class "primary")))
+
+
+(defpoll weather :interval 300 "~/scripts/get-weather.sh")
+(defwidget weather []
+  (label_value :text "" :value "${weather.current.temp}°C"))
 
 
 (defwidget left_bar []
@@ -152,6 +157,7 @@
       (window))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
+      (weather)(sep)
       (notifications)(space)
       (color_selector)(space)
       (wallpaper)(space)

@@ -1,8 +1,8 @@
 #!/bin/env sh
 
 case "$1" in
-  "uri") OUTPUT='--raw-output0 "lat=\(.latitude)&lon=\(.longitude)"';;
-  "csv") OUTPUT='--raw-output0 "\(.latitude),\(.longitude)"';;
+  "uri") OUTPUT='-r "lat=\(.latitude)&lon=\(.longitude)"';;
+  "csv") OUTPUT='-r "\(.latitude),\(.longitude)"';;
   "json"|*) OUTPUT='-Mc pick(.latitude,.longitude)';;
 esac
 
