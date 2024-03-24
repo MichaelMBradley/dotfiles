@@ -176,6 +176,7 @@
       (window))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
+      (weather)(sep)
       (color_selector)(space)
       (wallpaper)(sep)
       (ram)(space)
