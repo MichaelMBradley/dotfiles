@@ -55,7 +55,7 @@
 (defvar combined_interface true)
 (deflisten interfaces :initial '{}' "~/.config/eww/scripts/network-statistics-shell 5")
 (defwidget network_speed [label interface]
-  (eventbox :onclick "eww update combined_interface=${!combined_interface}" :cursor "pointer"
+  (eventbox :onclick "${EWW_CMD} update combined_interface=${!combined_interface}" :cursor "pointer"
     (label_value :text label :value {(interfaces?.[interface]?.up ?: false) ? (combined_interface ? interfaces?.[interface]?.combined : "󰶡${interfaces?.[interface]?.rx} 󰶣${interfaces?.[interface]?.tx}") : "dc"} :value_class {(interfaces?.[interface]?.up ?: false) ? "" : "disabled"})))
 (defwidget eth []
   (network_speed :label "󰈀" :interface "enp6s0"))
@@ -83,7 +83,7 @@
           (label :text "ﰇ" :class "reboot"))
         (eventbox :onclick "shutdown now" :cursor "pointer"
           (label :text "" :class "shutdown"))))
-    (eventbox :onclick "eww update reveal_power=${!reveal_power}" :cursor "pointer"
+    (eventbox :onclick "${EWW_CMD} update reveal_power=${!reveal_power}" :cursor "pointer"
       (label :text {reveal_power ? "×" : ""} :class "control"))))
 ; Unused entries from my Polybar version of this that may end up being useful later
 ;menu-0-2 = %{F#7FFF00}
@@ -94,7 +94,7 @@
 
 (defvar notifications true)
 (defwidget notifications []
-  (eventbox :onclick "eww update notifications=${!notifications} ; dunstctl set-paused ${notifications}" :cursor "pointer"
+  (eventbox :onclick "${EWW_CMD} update notifications=${!notifications} ; dunstctl set-paused ${notifications}" :cursor "pointer"
     (label :text {notifications ? "" : ""} :class "primary")))
 
 
