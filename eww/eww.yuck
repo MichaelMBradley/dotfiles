@@ -127,7 +127,9 @@
 (defpoll weather :interval 300 "~/scripts/get-weather.sh")
 (defpoll weather_icons :interval 0 :run-while false "cat ~/.config/eww/scripts/weather-icons.json")
 (defwidget weather []
-  (label_value :text {weather_icons[weather.current.weather[0].icon]} :value "${round(weather.current.temp, 0)}°C"))
+  (tooltip
+    (label :text "${round(weather.current.feels_like, 0)}°C")
+    (label_value :text {weather_icons[weather.current.weather[0].icon]} :value "${round(weather.current.temp, 0)}°C")))
 
 
 (defwidget left_bar []
