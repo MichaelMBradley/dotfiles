@@ -84,9 +84,9 @@
         (eventbox :onclick "shutdown now" :cursor "pointer"
           (label :text "" :class "shutdown"))))
     (eventbox :onclick "${EWW_CMD} update reveal_power=${!reveal_power}" :cursor "pointer"
-      (stack :selected {reveal_power ? 0 : 1} :transition "crossfade" :same-size true
-        (label :text "×" :class "control")
-        (label :text "" :class "control")))))
+      (stack :selected {reveal_power ? 1 : 0} :transition "crossfade" :same-size true
+        (label :text "" :class "control")
+        (label :text "×" :class "control")))))
 ; Unused entries from my Polybar version of this that may end up being useful later
 ;menu-0-2 = %{F#7FFF00}
 ;menu-0-2-exec = systemctl hibernate
