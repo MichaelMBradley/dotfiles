@@ -16,11 +16,22 @@ get_device_id() {
 	~/.config/eww/scripts/get-audio-device-id "$1"
 }
 
-HEADPHONES="$(get_device_id 'headphones')"
+HEADPHONES=""
 HEADPHONES_ICON='󰋋'
-SPEAKERS="$(get_device_id 'speakers')"
+SPEAKERS=""
 SPEAKERS_ICON='󰓃'
+HEADPHONE_MIC=""
+HEADPHONE_MIC_ICON='󰋎'
+BLUE_MIC=""
+BLUE_MIC_ICON=''
 UNKNOWN_ICON='?'
+
+get_ids() {
+	HEADPHONES="$(get_device_id 'headphones')"
+	SPEAKERS="$(get_device_id 'speakers')"
+	HEADPHONE_MIC="$(get_device_id 'headphone_mic')"
+	BLUE_MIC="$(get_device_id 'blue_mic')"
+}
 
 audio_sink() {
 	case "$(pactl get-default-sink)" in
@@ -32,11 +43,6 @@ audio_sink() {
 		;;
 	esac
 }
-
-HEADPHONE_MIC="$(get_device_id 'headphone_mic')"
-HEADPHONE_MIC_ICON='󰋎'
-BLUE_MIC="$(get_device_id 'blue_mic')"
-BLUE_MIC_ICON=''
 
 audio_source() {
 	case "$(pactl get-default-source)" in
@@ -53,12 +59,15 @@ audio() {
 	echo "{\"volume\":$(volume),\"muted\":$(mute),\"sink\":\"$(audio_sink)\",\"source\":\"$(audio_source)\"}"
 }
 
+get_ids
 audio
 sleep 3
+get_ids
 audio
 pactl subscribe | while read -r LINE; do
 	if [[ "$LINE" =~ 'change' ]]; then
 		audio
+		get_ids
 	fi
 done
 

@@ -22,3 +22,6 @@ indent_size = 8
 indent_style = space
 indent_size = 2
 
+[*.{c,cpp,h,hpp,fs,vs,frag,vert}]
+indent_style = tab
+indent_size = 4

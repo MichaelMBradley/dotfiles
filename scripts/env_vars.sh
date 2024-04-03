@@ -21,5 +21,3 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export TF_CPP_MAX_VLOG_LEVEL=-1
 
 export PATH="$PATH:/home/mbradley/.local/share/JetBrains/Toolbox/scripts:/home/mbradley/scripts:/home/mbradley/.local/bin"
-
-alias eww="/home/mbradley/gh/eww/target/release/eww"
