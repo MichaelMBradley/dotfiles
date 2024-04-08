@@ -33,6 +33,7 @@ gtk5 = { source = "gtk/gtk-5.0", target = ".config/gtk-5.0" }
 gtk6 = { source = "gtk/gtk-6.0", target = ".config/gtk-6.0" }
 hypr = { source = "hypr", target = ".config/hypr" }
 kitty = { source = "kitty", target = ".config/kitty" }
+lsd = { source = "lsd", target = ".config/lsd" }
 lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
 nautilus-scripts = { source = "nautilus-scripts", target = ".local/share/nautilus/scripts" }
 nvim = { source = "nvim", target = ".config/nvim" }

@@ -1,0 +1,39 @@
+classic: false
+
+blocks:
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - git
+  - name
+
+color:
+  when: auto
+  theme: default
+
+icons:
+  when: auto
+  theme: fancy
+
+indicators: true
+
+layout: oneline
+
+recursion:
+  enabled: false
+
+size: default
+
+sorting:
+  column: name
+  dir-grouping: first
+
+total-size: true
+
+hyperlink: always
+
+header: false
+
+literal: true
