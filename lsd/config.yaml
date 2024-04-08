@@ -30,7 +30,7 @@ sorting:
   column: name
   dir-grouping: first
 
-total-size: true
+#total-size: true
 
 hyperlink: always
 
