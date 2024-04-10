@@ -69,7 +69,7 @@ class Interface:
 		self._tx.update()
 		self._rx.update()
 
-	def json(self, interval: float) -> dict[str, str | bool]:
+	def json(self, interval: float) -> dict[str, str | bool | float]:
 		interval_tx = self._tx.value(interval)
 		interval_rx = self._rx.value(interval)
 
@@ -77,6 +77,7 @@ class Interface:
 			"tx": format_bytes(interval_tx),
 			"rx": format_bytes(interval_rx),
 			"combined": format_bytes(interval_tx + interval_rx),
+			"combined_raw": interval_tx + interval_rx,
 			"up": self._status.up(),
 		}
 
