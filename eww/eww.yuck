@@ -65,7 +65,11 @@
 
 (defwidget datetime []
   (box :space-evenly false
-    (label :text "${formattime(EWW_TIME, "%Y-%m-%d")}" :class "label-date" :tooltip {formattime(EWW_TIME, "%A, %B %-d")})
+    (tooltip
+      (box :orientation "vertical" :space-evenly false
+        (label :text {formattime(EWW_TIME, "%A, %B %-d")})
+        (calendar :show-heading false :show-day-names false))
+      (label :text "${formattime(EWW_TIME, "%Y-%m-%d")}" :class "label-date"))
     (label :text "/" :class "disabled")
     (label :text "${formattime(EWW_TIME, "%H:%M:%S")}" :class "label-time" :tooltip {formattime(EWW_TIME, "%-I:%M %p")})))
 
