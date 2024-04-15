@@ -6,8 +6,14 @@ case "$1" in
   "json"|*) OUTPUT='-Mc pick(.latitude,.longitude)';;
 esac
 
-FILE="$XDG_STATE_HOME/ip.json"
+# Try user-set constant geolocation
+FILE="$XDG_CONFIG_HOME/ip.json"
 if [ ! -f "$FILE" ]; then
+  # If not, try automatically generated ip file
+  FILE="$XDG_CACHE_HOME/ip.json"
+fi
+if [ ! -f "$FILE" ]; then
+  # If not, give up and say (0,0)
   FILE="/tmp/ip-null.json"
   echo '{"latitude":0,"longitude":0}' > "$FILE"
 fi

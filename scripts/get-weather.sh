@@ -2,8 +2,8 @@
 
 source ~/scripts/env_vars.sh
 
-API_KEY_FILE="$XDG_STATE_HOME/openweathermap/api-key.txt"
-DATA_FILE="$XDG_STATE_HOME/openweathermap/data.json"
+API_KEY_FILE="$XDG_CONFIG_HOME/openweathermap/api-key.txt"
+DATA_FILE="$XDG_CACHE_HOME/openweathermap/data.json"
 
 if [ ! -f "$API_KEY_FILE" ]; then
   exit 1
