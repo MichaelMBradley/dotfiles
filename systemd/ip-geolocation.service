@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 Type=oneshot
 # Using $XDG_STATE_HOME would be preferable, but systemd/sh doesn't play nice with environment variables
-ExecStart=/bin/sh -c 'curl "https://ipapi.co/json/" -o "/home/mbradley/.local/state/ip.json"'
+ExecStart=/bin/sh -c 'curl "https://ipapi.co/json/" -o "/home/mbradley/.cache/ip.json"'
 
 [Install]
 WantedBy=default.target
