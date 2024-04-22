@@ -2,10 +2,11 @@
 
 # From: https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#eww
 
-# TODO: add `first` attribute indicating if workspace is the first on its screen
 spaces (){
-	ACTIVE_ID=$(hyprctl activeworkspace -j | jq -Mc ".id")
-	hyprctl workspaces -j | jq -Mc "map({id, name, monitor, active: [.id == $ACTIVE_ID][0]}) | sort_by(.id)"
+	ACTIVE_ID="$(hyprctl activeworkspace -j | jq -Mc '.id')"
+	WORKSPACES="$(hyprctl workspaces -j | jq -Mc 'sort_by(.name)')"
+	FIRSTS="$(echo "$WORKSPACES" | jq -Mc 'group_by(.monitor) | map(.[0].id)')"
+	echo "$WORKSPACES" | jq -Mc 'map(. as $ws | {id, name, monitor, active: (.id == '"$ACTIVE_ID"'), first: any('"$FIRSTS"' | .[] == $ws.id)})'
 }
 
 spaces

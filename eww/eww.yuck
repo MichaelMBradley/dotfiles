@@ -20,7 +20,7 @@
 (defwidget workspaces [monitor]
   (box :space-evenly false :class "workspaces"
     (for workspace in workspaces
-      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {workspace.monitor == monitor} :class "${workspace.active ? "current" : ""} ${workspace.id < 4 ? "first" : ""}" :cursor "pointer"
+      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {workspace.monitor == monitor} :class "${workspace.active ? "current" : ""} ${workspace.first ? "first" : ""}" :cursor "pointer"
         (label :text {workspace.name})))))
 
 
@@ -236,7 +236,7 @@
   (above_bar))
 
 (defwindow laptop
-  :monitor 0
+  :monitor "0x1502"
   :geometry (geometry :x "0px"
                       :y "4px"
                       :width "1912px"
