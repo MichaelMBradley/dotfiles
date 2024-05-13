@@ -9,11 +9,11 @@ if [ ! -f "$API_KEY_FILE" ]; then
 fi
 
 CACHE_DIR="$XDG_CACHE_HOME/openweathermap"
-RAIN_FILE="$CACHE_DIR/rain"
+#RAIN_FILE="$CACHE_DIR/rain"
 
-if [ ! -f "$RAIN_FILE" ] || [ "$(find "$RAIN_FILE" -mmin +10)" ]; then
-  curl 'https://api.openweathermap.org/data/2.0/weather/PR0/'"$(~/scripts/geolocation.sh tile)"'?appid='"$(cat "$API_KEY_FILE")" -s -o "$RAIN_FILE"
-fi
+#if [ ! -f "$RAIN_FILE" ] || [ "$(find "$RAIN_FILE" -mmin +10)" ]; then
+#  curl 'https://api.openweathermap.org/data/2.0/weather/PR0/'"$(~/scripts/geolocation.sh tile)"'?appid='"$(cat "$API_KEY_FILE")" -s -o "$RAIN_FILE"
+#fi
 
 ONE_CALL_FILE="$CACHE_DIR/onecall.json"
 
