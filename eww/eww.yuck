@@ -17,10 +17,10 @@
 
 
 (deflisten workspaces :initial "[]" "~/.config/eww/scripts/get-workspaces")
-(defwidget workspaces [monitor]
+(defwidget workspaces [monitor ?all]
   (box :space-evenly false :class "workspaces"
     (for workspace in workspaces
-      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {workspace.monitor == monitor} :class "${workspace.active ? "current" : ""} ${workspace.first ? "first" : ""}" :cursor "pointer"
+      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible {(all ?: false) || (workspace.monitor == monitor)} :class "${workspace.active ? "current" : ""} ${workspace.first ? "first" : ""}" :cursor "pointer"
         (label :text {workspace.name})))))
 
 
@@ -184,7 +184,7 @@
 (defwidget laptop_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
-      (workspaces :monitor "eDP-1")(sep)
+      (workspaces :monitor "eDP-1" :all true)(sep)
       (window))
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
