@@ -13,7 +13,9 @@ scripts = { source = "scripts", target = "scripts" }
 editorconfig = { source = "home/editorconfig", target = ".editorconfig" }
 
 electron = { source = "config/electron-flags.conf", target = ".config/electron-flags.conf" }
-electron28 = { source = "config/electron-flags.conf", target = ".config/electron28-flags.conf" }
+electron16 = { source = "config/electron-flags.conf", target = ".config/electron16-flags.conf" }
+electron29 = { source = "config/electron-flags.conf", target = ".config/electron29-flags.conf" }
+electron30 = { source = "config/electron-flags.conf", target = ".config/electron30-flags.conf" }
 discord = { source = "config/electron-flags.conf", target = ".config/discord-flags.conf" }
 
 git = { source = "git/config", target = ".config/git/config" }
