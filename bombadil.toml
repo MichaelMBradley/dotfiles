@@ -10,7 +10,7 @@ posthooks = [
 templates = { source = "Templates", target = "Templates" }
 scripts = { source = "scripts", target = "scripts" }
 
-editorconfig = { source = "home/editorconfig", target = ".editorconfig" }
+editorconfig = { source = "home/.editorconfig", target = ".editorconfig" }
 
 electron = { source = "config/electron-flags.conf", target = ".config/electron-flags.conf" }
 electron16 = { source = "config/electron-flags.conf", target = ".config/electron16-flags.conf" }
