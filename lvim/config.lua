@@ -58,6 +58,7 @@ lvim.plugins = {
 		end,
 	},
 	{ "ms-jpq/chadtree" },
+	{ "f-person/git-blame.nvim" },
 }
 
 -- vim options
