@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 source ~/scripts/env_vars.sh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -7,6 +9,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+zstyle ':omz:update' mode disabled  # OMZ is installed with the -git AUR package, so this is unnecessary
 ZSH_THEME="robbyrussell"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="false"
