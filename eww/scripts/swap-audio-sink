@@ -3,7 +3,7 @@
 HEADPHONES="$(~/.config/eww/scripts/get-audio-device-id 'headphones')"
 SPEAKERS="$(~/.config/eww/scripts/get-audio-device-id 'speakers')"
 
-if [ "$(pactl get-default-sink)" == "${SPEAKERS}" ] ; then
+if [ "$(pactl get-default-sink)" = "${SPEAKERS}" ] ; then
   pactl set-default-sink "${HEADPHONES}"
 else
   pactl set-default-sink "${SPEAKERS}"

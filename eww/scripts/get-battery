@@ -2,7 +2,7 @@
 
 FULL="$(cat /sys/class/power_supply/BAT0/charge_full)"
 NOW="$(cat /sys/class/power_supply/BAT0/charge_now)"
-CHARGE=$((100*$NOW/$FULL))
+CHARGE=$((100*NOW/FULL))
 
 CHARGE_ICONS="󰂎󰁺󰁻󰁼󰁽󰁾󰁿󰂀󰂁󰂂󰁹"
 CHARGE_ICON_INDEX=$((CHARGE/10))

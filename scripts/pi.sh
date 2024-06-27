@@ -3,7 +3,7 @@
 # Runs y-cruncher over and over to heat up CPU
 
 which y-cruncher
-if [ "$?" == "1" ]; then
+if [ "$?" = "1" ]; then
   exit 1
 fi
 

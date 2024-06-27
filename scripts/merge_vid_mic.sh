@@ -6,7 +6,7 @@ for vid in *.mp4; do
   if [ -e "${vid}.m4a" ]; then
     echo "Merging files ${vid}.{mp4,m4a}"
     ffmpeg -i "${vid}.mp4" -i "${vid}.m4a" -map 0 -map 1:a -c:v copy -shortest "MERGE-${vid}.mp4"
-    if [ "$?" == "0" ] ; then
+    if [ "$?" = "0" ] ; then
       echo "Merge succeeded - Deleting old files"
       rm "${vid}.mp4" "${vid}.m4a"
       # Move to backup folder instead of deleting

@@ -14,7 +14,7 @@ export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export ZSH="$XDG_DATA_HOME/oh-my-zsh"
 export RANDFILE="$XDG_CACHE_HOME/.rnd"
 export VIMINIT='let $MYVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME/vim/vimrc" : "$XDG_CONFIG_HOME/nvim/init.vim" | so $MYVIMRC'
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 export W3M_DIR="$XDG_DATA_HOME/w3m"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"

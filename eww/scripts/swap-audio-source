@@ -3,7 +3,7 @@
 HEADPHONE_MIC="$(~/.config/eww/scripts/get-audio-device-id 'headphone_mic')"
 BLUE_MIC="$(~/.config/eww/scripts/get-audio-device-id 'blue_mic')"
 
-if [ "$(pactl get-default-source)" == "${BLUE_MIC}" ] ; then
+if [ "$(pactl get-default-source)" = "${BLUE_MIC}" ] ; then
   pactl set-default-source "${HEADPHONE_MIC}"
 else
   pactl set-default-source "${BLUE_MIC}"

@@ -1,5 +1,5 @@
 #!/bin/env sh
 
 # EWW doesn't seem to like listening to Python scripts directly, but this wrapper seems to work fine
-"$(dirname $0)"/network-statistics $@
+"$(dirname "$0")"/network-statistics $@
 
