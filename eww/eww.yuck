@@ -145,7 +145,7 @@
 (defwidget left_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
-      (workspaces :monitor "DP-2")(sep :class "no-left-pad")
+      (workspaces :monitor "DP-3")(sep :class "no-left-pad")
       (window))
     (box)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"

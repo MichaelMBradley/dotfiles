@@ -5,7 +5,7 @@
 
 # Effects makes things look nicer normally, but messes with game windows and reduces performance
 hyprctl --batch "\
-  keyword monitor DP-2,1920x1080@165,-1000x1000,1;\
+  keyword monitor DP-3,1920x1080@165,-1000x1000,1;\
   keyword windowrulev2 opacity 1.0 override 1.0 override,class:.*
   keyword general:gaps_out 0;\
   keyword animations:enabled 0;\
