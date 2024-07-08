@@ -1,6 +1,6 @@
 #!/bin/env sh
 
-# From: https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#eww
+# Modified from: https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#eww
 
 spaces (){
 	ACTIVE_ID="$(hyprctl activeworkspace -j | jq -Mc '.id')"
@@ -10,6 +10,6 @@ spaces (){
 }
 
 spaces
-socat -u UNIX-CONNECT:"$XDG_RUNTIME_DIR"/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r line; do
+socat -u UNIX-CONNECT:"$XDG_RUNTIME_DIR"/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r _line; do
 	spaces
 done

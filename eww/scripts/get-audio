@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/env zsh
 
 volume() {
 	pactl get-sink-volume @DEFAULT_SINK@ | rg 'Volume: front-left:\s+\d+\s+/\s+(\d+)%' -or '$1' --color=never
@@ -35,22 +35,22 @@ get_ids() {
 
 audio_sink() {
 	case "$(pactl get-default-sink)" in
-		"$HEADPHONES") echo $HEADPHONES_ICON
+		"$HEADPHONES") echo "$HEADPHONES_ICON"
 		;;
-		"$SPEAKERS") echo $SPEAKERS_ICON
+		"$SPEAKERS") echo "$SPEAKERS_ICON"
 		;;
-		*) echo $UNKNOWN_ICON
+		*) echo "$UNKNOWN_ICON"
 		;;
 	esac
 }
 
 audio_source() {
 	case "$(pactl get-default-source)" in
-		"$HEADPHONE_MIC") echo $HEADPHONE_MIC_ICON
+		"$HEADPHONE_MIC") echo "$HEADPHONE_MIC_ICON"
 		;;
-		"$BLUE_MIC") echo $BLUE_MIC_ICON
+		"$BLUE_MIC") echo "$BLUE_MIC_ICON"
 		;;
-		*) echo $UNKNOWN_ICON
+		*) echo "$UNKNOWN_ICON"
 		;;
 	esac
 }
