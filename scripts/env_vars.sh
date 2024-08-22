@@ -20,4 +20,4 @@ export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export TF_CPP_MAX_VLOG_LEVEL=-1
 
-export PATH="$PATH:/home/mbradley/.local/share/JetBrains/Toolbox/scripts:/home/mbradley/scripts:/home/mbradley/.local/bin"
+export PATH="$PATH:/home/mbradley/.local/share/JetBrains/Toolbox/scripts:/home/mbradley/scripts:/home/mbradley/.local/bin:/home/mbradley/.local/share/cargo/bin/"
