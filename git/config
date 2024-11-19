@@ -14,6 +14,8 @@
 	path = ./config-personal
 [includeIf "gitdir:~/school/"]
 	path = ./config-personal
+[includeIf "gitdir:~/Documents/"]
+	path = ./config-personal
 [includeIf "gitdir:~/work/"]
 	path = ./config-work
 
