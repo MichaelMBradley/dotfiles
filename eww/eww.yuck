@@ -142,6 +142,12 @@
     (label_value :text {weather_icons[weather.current.weather[0].icon]} :value "${round(weather.current.temp, 0)}°C")))
 
 
+(defpoll gametime :interval 10 "~/scripts/gametime.sh status")
+(defwidget gametime []
+  (eventbox :onclick "~/scripts/gametime.sh toggle" :cursor "pointer"
+    (label :text {gametime ? "󰁜" : "󰺷"} :class "primary")))
+
+
 (defwidget left_bar []
   (centerbox :class "bar" :orientation "h"
     (box :class "left" :orientation "h" :space-evenly false :halign "begin"
@@ -171,6 +177,7 @@
     (systray :pack_direction "ltr" :icon-size 20)
     (box :class "right" :orientation "h" :space-evenly false :halign "end"
       (weather)(sep)
+      (gametime)(space)
       (notifications)(space)
       (color_selector)(space)
       (wallpaper)(space)
