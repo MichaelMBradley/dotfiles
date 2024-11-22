@@ -3,7 +3,6 @@ dotfiles_dir = "dev/dotfiles"
 [settings]
 posthooks = [
 	"eww reload",
-	"hyprshade install",
 ]
 
 [settings.dots]
