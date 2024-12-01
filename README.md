@@ -7,12 +7,13 @@ The dotfiles are managed with [TOML Bombadil](https://github.com/oknozor/toml-bo
 
 ## TODO
 
+* General
+	* Check for default config updates (hypr, kitty, etc.)
+* Zsh
+	* Update to new format
 * Wallpaper
-	* Show up on new monitors
 	* Adjust to time of day
 	* Make sure changed wallpaper is new
 * EWW
 	* Create radar widget
-	* Adjust calendar widget
-	* Fix circular progress label cut-off
 	* Make separate scroll jumps for `chonk` vs `hpomen`?

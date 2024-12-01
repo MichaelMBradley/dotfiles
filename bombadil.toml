@@ -47,4 +47,5 @@ roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
 steam = { source = "steam/steam_dev.cfg", target = ".steam/steam/steam_dev.cfg" }
 swaylock = { source = "swaylock", target = ".config/swaylock" }
 vim = { source = "vim/vimrc", target = ".config/vim/vimrc" }
+yazi = { source = "yazi", target = ".config/yazi" }
 zsh = { source = "zsh", target = ".config/zsh" }
