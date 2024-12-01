@@ -24,7 +24,6 @@ ip-geolocation = { source = "systemd/ip-geolocation.service", target = ".config/
 sunset-timer = { source = "systemd/sunset.timer", target = ".config/systemd/user/sunset.timer" }
 sunset-service = { source = "systemd/sunset.service", target = ".config/systemd/user/sunset.service" }
 
-bash = { source = "bash", target = ".config/bash" }
 btop = { source = "btop", target = ".config/btop" }
 dunst = { source = "dunst", target = ".config/dunst" }
 eww = { source = "eww", target = ".config/eww"}
@@ -41,7 +40,6 @@ lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
 nautilus-scripts = { source = "nautilus-scripts", target = ".local/share/nautilus/scripts" }
 nvim = { source = "nvim", target = ".config/nvim" }
 pipewire = { source = "pipewire", target = ".config/pipewire" }
-ranger = { source = "ranger", target = ".config/ranger" }
 rofi = { source = "rofi", target = ".config/rofi" }
 roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
 steam = { source = "steam/steam_dev.cfg", target = ".steam/steam/steam_dev.cfg" }
