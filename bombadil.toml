@@ -19,8 +19,10 @@ discord = { source = "config/electron-flags.conf", target = ".config/discord-fla
 
 git = { source = "git/config", target = ".config/git/config" }
 
-# Also needs a `systemctl --user enable --now ip-geolocation.service`
-systemd = { source = "systemd/ip-geolocation.service", target = ".config/systemd/user/ip-geolocation.service" }
+# Also needs a `systemctl --user enable --now ip-geolocation.service` and `systemctl --user enable --now sunset.timer`
+ip-geolocation = { source = "systemd/ip-geolocation.service", target = ".config/systemd/user/ip-geolocation.service" }
+sunset-timer = { source = "systemd/sunset.timer", target = ".config/systemd/user/sunset.timer" }
+sunset-service = { source = "systemd/sunset.service", target = ".config/systemd/user/sunset.service" }
 
 bash = { source = "bash", target = ".config/bash" }
 btop = { source = "btop", target = ".config/btop" }

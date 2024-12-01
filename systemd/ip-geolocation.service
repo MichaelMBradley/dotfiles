@@ -1,5 +1,5 @@
 [Unit]
-description=Saves geolocation to a file
+Description=Saves geolocation to a file
 Wants=network-online.target
 After=network-online.target
 

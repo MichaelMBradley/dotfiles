@@ -1,0 +1,6 @@
+[Unit]
+Description=Reduces blue light
+
+[Service]
+Type=oneshot
+ExecStart=/home/mbradley/scripts/sunset.sh

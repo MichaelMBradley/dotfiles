@@ -1,0 +1,10 @@
+[Unit]
+Description=Blue light reduction at night
+After=graphical.target
+
+[Timer]
+OnCalendar=*-*-* 22:02:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
