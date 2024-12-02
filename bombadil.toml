@@ -34,7 +34,6 @@ hypr = { source = "hypr", target = ".config/hypr" }
 kitty = { source = "kitty", target = ".config/kitty" }
 lsd = { source = "lsd", target = ".config/lsd" }
 lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
-nvim = { source = "nvim", target = ".config/nvim" }
 rofi = { source = "rofi", target = ".config/rofi" }
 steam = { source = "steam/steam_dev.cfg", target = ".steam/steam/steam_dev.cfg" }
 swaylock = { source = "swaylock", target = ".config/swaylock" }
