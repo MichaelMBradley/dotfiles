@@ -7,10 +7,6 @@ The dotfiles are managed with [TOML Bombadil](https://github.com/oknozor/toml-bo
 
 ## TODO
 
-* General
-	* Check for default config updates (hypr, kitty, etc.)
-* Zsh
-	* Update to new format
 * Wallpaper
 	* Adjust to time of day
 	* Make sure changed wallpaper is new
