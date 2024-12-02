@@ -12,9 +12,6 @@ scripts = { source = "scripts", target = "scripts" }
 editorconfig = { source = "home/.editorconfig", target = ".editorconfig" }
 
 electron = { source = "config/electron-flags.conf", target = ".config/electron-flags.conf" }
-electron16 = { source = "config/electron-flags.conf", target = ".config/electron16-flags.conf" }
-electron29 = { source = "config/electron-flags.conf", target = ".config/electron29-flags.conf" }
-electron30 = { source = "config/electron-flags.conf", target = ".config/electron30-flags.conf" }
 discord = { source = "config/electron-flags.conf", target = ".config/discord-flags.conf" }
 
 git = { source = "git/config", target = ".config/git/config" }
@@ -37,11 +34,8 @@ hypr = { source = "hypr", target = ".config/hypr" }
 kitty = { source = "kitty", target = ".config/kitty" }
 lsd = { source = "lsd", target = ".config/lsd" }
 lvim = { source = "lvim/config.lua", target = ".config/lvim/config.lua" }
-nautilus-scripts = { source = "nautilus-scripts", target = ".local/share/nautilus/scripts" }
 nvim = { source = "nvim", target = ".config/nvim" }
-pipewire = { source = "pipewire", target = ".config/pipewire" }
 rofi = { source = "rofi", target = ".config/rofi" }
-roficafmenu = { source = "rofi-cafmenu", target = ".config/rofi-cafmenu" }
 steam = { source = "steam/steam_dev.cfg", target = ".steam/steam/steam_dev.cfg" }
 swaylock = { source = "swaylock", target = ".config/swaylock" }
 vim = { source = "vim/vimrc", target = ".config/vim/vimrc" }
