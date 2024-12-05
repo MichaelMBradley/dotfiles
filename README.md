@@ -7,6 +7,10 @@ The dotfiles are managed with [TOML Bombadil](https://github.com/oknozor/toml-bo
 
 ## TODO
 
+* Hyprland
+	* Start with `uwsm`?
+* hyprsunset
+	* Ramp throughout day
 * Wallpaper
 	* Adjust to time of day
 	* Make sure changed wallpaper is new
