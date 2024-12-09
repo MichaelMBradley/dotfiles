@@ -3,6 +3,7 @@ dotfiles_dir = "dev/dotfiles"
 [settings]
 posthooks = [
 	"eww reload",
+	"dunstctl reload"
 ]
 
 [settings.dots]
