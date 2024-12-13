@@ -65,15 +65,19 @@
   (network_speed :label "" :interface "wlo1"))
 
 
+(defwidget date []
+  (tooltip
+    (box :orientation "vertical" :space-evenly false
+      (label :text {formattime(EWW_TIME, "%A, %B %-d")})
+      (calendar :show-heading false :show-day-names false))
+    (label :text "${formattime(EWW_TIME, "%Y-%m-%d")}" :class "label-date")))
+(defwidget time [?highlighted]
+  (label :text "${formattime(EWW_TIME, "%H:%M:%S")}" :class {(highlighted ?: true) ? "label-time" : ""} :tooltip {formattime(EWW_TIME, "%-I:%M %p")}))
 (defwidget datetime []
   (box :space-evenly false
-    (tooltip
-      (box :orientation "vertical" :space-evenly false
-        (label :text {formattime(EWW_TIME, "%A, %B %-d")})
-        (calendar :show-heading false :show-day-names false))
-      (label :text "${formattime(EWW_TIME, "%Y-%m-%d")}" :class "label-date"))
+    (date)
     (label :text "/" :class "disabled")
-    (label :text "${formattime(EWW_TIME, "%H:%M:%S")}" :class "label-time" :tooltip {formattime(EWW_TIME, "%-I:%M %p")})))
+    (time)))
 
 
 (defvar reveal_power false)
