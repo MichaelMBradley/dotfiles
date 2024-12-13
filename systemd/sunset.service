@@ -3,4 +3,4 @@ Description=Reduces blue light
 
 [Service]
 Type=oneshot
-ExecStart=/home/mbradley/scripts/sunset.sh
+ExecStart=hyprsunset -t 3600

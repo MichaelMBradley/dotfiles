@@ -3,7 +3,8 @@ dotfiles_dir = "dev/dotfiles"
 [settings]
 posthooks = [
 	"eww reload",
-	"dunstctl reload"
+	"dunstctl reload",
+	"systemctl --user daemon-reload"
 ]
 
 [settings.dots]

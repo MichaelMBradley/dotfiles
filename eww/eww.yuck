@@ -132,10 +132,11 @@
   (label_value :text {battery.charging ? "󰂄" : battery.icon} :value "${battery.charge}%" :value_class {battery.charge < 30 ? "alert" : ""}))
 
 
-(defpoll shader :interval 60 "hyprshade current")
+; This is really hacky - a deflisten on a script using gdbus would be better
+(defpoll shader :interval 60 "sh -c 'systemctl --user status sunset.service | cat'")
 (defwidget shader []
-  (eventbox :onclick {shader == "" ? "hyprshade auto" : "hyprshade off"} :cursor "pointer"
-    (label :text {shader == "" ? "" : "󰖔"} :class "primary")))
+  (eventbox :onclick "systemctl --user ${arraylength(search(shader, "activating")) == 0 ? "--no-block start" : "stop"} sunset.service" :cursor "pointer"
+    (label :text {arraylength(search(shader, "activating")) == 0 ? "" : "󰖔"} :class "primary")))
 
 
 (defpoll weather :interval 300 "~/scripts/get-weather.sh")
