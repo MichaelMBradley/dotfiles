@@ -4,7 +4,7 @@
 
 spaces (){
 	ACTIVE_ID="$(hyprctl activeworkspace -j | jq -Mc '.id')"
-	WORKSPACES="$(hyprctl workspaces -j | jq -Mc 'sort_by(.name)')"
+	WORKSPACES="$(hyprctl workspaces -j | jq -Mc 'sort_by(.id)')"
 	FIRSTS="$(echo "$WORKSPACES" | jq -Mc 'group_by(.monitor) | map(.[0].id)')"
 	echo "$WORKSPACES" | jq -Mc 'map(. as $ws | {id, name, monitor, active: (.id == '"$ACTIVE_ID"'), first: any('"$FIRSTS"' | .[] == $ws.id)})'
 }
